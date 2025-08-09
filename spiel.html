@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feuer - Wasser - Pflanze</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="submit.js" defer></script>
+    <style>
+        body {
+            height: 100%;
+            margin: 0;
+            text-align: center;
+        }
+
+        .pokemon-card {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+
+        .pokemon-card img {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            
+        }
+        h2{
+            background-color: grey !important;
+            padding: 10px;
+            border: 1px solid black;
+        }
+
+        .pokemon-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .panel{
+            text-align: center;
+            width: 100%;
+        }
+        .scorePanel{
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header class="text-center">
+        <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><u> Feuer<i style="color:red;" class=" fa-solid fa-fire"></i> - Wasser<i style="color:blue" class=" fa-solid fa-water"></i> - Pflanze<i style="color:greenyellow" class=" fa-solid fa-seedling"></i></u></h1>
+    </header>
+    
+    <div class="container mt-5">
+        <div class="row mt-4">
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="pokemon-card">
+                    <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/001.png" alt="Bisasam" onclick="play(0)">
+                    <h2>Bisasam</h2>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="pokemon-card">
+                    <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/004.png" alt="Glumanda" onclick="play(1)">
+                    <h2>Glumanda</h2>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="pokemon-card">
+                    <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/007.png" alt="Schiggy" onclick="play(2)">
+                    <h2>Schiggy</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="pokemon-card">
+                    <img id="spieler">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <h2 style="text-align: center"> VS </h2>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="pokemon-card">
+                    <img id="computer">
+                </div>
+            </div>
+
+        </div>
+        <div class="row mt-4">
+           <div class="button">
+            <button id="startButton" onclick="start()">Start</button>
+            <button id="newRoundButton" onclick="resetGame()">Neue Runde</button>
+           </div>
+        </div>
+        <div class="panel">
+            <h3 id="decision"></h3>
+        </div>
+        <div class="row mt-4">
+            <div class="container mt-5 scorePanel">
+                <div class="row mt-4">
+                    <div class="panel">
+                        <h2> Score </h2>
+                    </div>
+                </div>
+                <div class="row mt-4 panel">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        Player
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        Computer
+                    </div>
+                </div>
+                <div class="row mt-4 panel">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <h3 id="scoreP">0</h3>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <h3 id="scoreC">0</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer style="background-color: #f2f2f2; padding: 20px; text-align: center;">
+        <p><i class="fa-solid fa-copyright"></i> 2024 Joel - Mansvell </p>
+    </footer>
+    <!-- die 3 folgenden Scripts modifizieren nichts in dem Code -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
