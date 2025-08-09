@@ -10,130 +10,174 @@
     <style>
         body {
             height: 100%;
-            margin: 0;
+            margin: 10px;
             text-align: center;
+            background: linear-gradient(145deg, #ffffff, #f3bf5d);
+        }
+        header h1 {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 2.5rem;
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            border-bottom: 3px solid #ff9900;
+            display: inline-block;
+            padding-bottom: 5px;
         }
 
+        header h1 i {
+            margin: 0 5px;
+        }
+
+        /* Style cartes Pokémon */
         .pokemon-card {
+            background: linear-gradient(145deg, #ffffff, #805c18);
+            border: 3px solid #ffcc00;
+            border-radius: 15px;
+            width: 200px;
             text-align: center;
-            padding: 20px;
-            border: 1px solid black;
-            border-radius: 8px;
-            transition: transform 0.2s;
-        }
-
-        .pokemon-card img {
-            width: 100%;
-            max-width: 150px;
-            height: auto;
-            
-        }
-        h2{
-            background-color: grey !important;
-            padding: 10px;
-            border: 1px solid black;
+            padding: 15px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
         }
 
         .pokemon-card:hover {
             transform: scale(1.05);
+            box-shadow: 0 10px 20px rgb(56, 248, 3);
         }
-        
-        .panel{
-            text-align: center;
-            width: 100%;
+
+        .pokemon-card img {
+            max-width: 100%;
+            border-radius: 10px;
         }
-        .scorePanel{
-            border: 1px solid #ddd;
+
+        /* Nom du Pokémon */
+        .pokemon-card h2 {
+            margin-top: 10px;
+            font-weight: bold;
+            font-family: 'Trebuchet MS', sans-serif;
+            background: rgba(255, 204, 0, 0.8);
             border-radius: 8px;
+            padding: 5px 10px;
+            color: #333;
+            display: inline-block;
+            text-shadow: 1px 1px #fff;
         }
+
+        /* Boutons Start & New Round */
+        .button button {
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 10px 25px;
+            margin: 5px;
+            border-radius: 25px;
+            border: none;
+            background: linear-gradient(45deg, #ffcc00, #ff9900);
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease, background 0.3s ease;
+        }
+
+        .button button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(45deg, #ffdd33, #ff6600);
+        }
+
+        /* Panel score stylé */
+        .scorePanel {
+            background: linear-gradient(145deg, #ffffff, #805c18);
+            border: 3px solid #ffcc00;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        .scorePanel h2 {
+            font-family: 'Trebuchet MS', sans-serif;
+            font-weight: bold;
+            color: #ff9900;
+        }
+
+
     </style>
 </head>
 <body>
     <header class="text-center">
-        <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><u> Feuer<i style="color:red;" class=" fa-solid fa-fire"></i> - Wasser<i style="color:blue" class=" fa-solid fa-water"></i> - Pflanze<i style="color:greenyellow" class=" fa-solid fa-seedling"></i></u></h1>
+        <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"> Feuer<i style="color:red;" class=" fa-solid fa-fire"></i> - Wasser<i style="color:blue" class=" fa-solid fa-water"></i> - Pflanze<i style="color:greenyellow" class=" fa-solid fa-seedling"></i></h1>
     </header>
-    
+
     <div class="container mt-5">
-        <div class="row mt-4">
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="pokemon-card">
-                    <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/001.png" alt="Bisasam" onclick="play(0)">
-                    <h2>Bisasam</h2>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="pokemon-card">
-                    <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/004.png" alt="Glumanda" onclick="play(1)">
-                    <h2>Glumanda</h2>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="pokemon-card">
-                    <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/007.png" alt="Schiggy" onclick="play(2)">
-                    <h2>Schiggy</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="pokemon-card">
-                    <img id="spieler">
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <h2 style="text-align: center"> VS </h2>
-            </div>
-
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="pokemon-card">
-                    <img id="computer">
-                </div>
-            </div>
-
-        </div>
-        <div class="row mt-4">
-           <div class="button">
-            <button id="startButton" onclick="start()">Start</button>
-            <button id="newRoundButton" onclick="resetGame()">Neue Runde</button>
-           </div>
-        </div>
-        <div class="panel">
-            <h3 id="decision"></h3>
-        </div>
-        <div class="row mt-4">
-            <div class="container mt-5 scorePanel">
+        <div class="row">
+            <!-- Zone Pokémon -->
+            <div class="col-lg-9">
                 <div class="row mt-4">
-                    <div class="panel">
-                        <h2> Score </h2>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="pokemon-card">
+                            <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/001.png" alt="Bisasam" onclick="play(0)">
+                            <h2>Bisasam</h2>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="pokemon-card">
+                            <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/004.png" alt="Glumanda" onclick="play(1)">
+                            <h2>Glumanda</h2>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="pokemon-card">
+                            <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/007.png" alt="Schiggy" onclick="play(2)">
+                            <h2>Schiggy</h2>
+                        </div>
                     </div>
                 </div>
-                <div class="row mt-4 panel">
+
+                <div class="row mt-4">
                     <div class="col-12 col-sm-6 col-lg-3">
-                        Player
+                        <div class="pokemon-card">
+                            <img id="spieler">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 text-center">
+                        <h2>VS</h2>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-3">
-                        Computer
+                        <div class="pokemon-card">
+                            <img id="computer">
+                        </div>
                     </div>
                 </div>
-                <div class="row mt-4 panel">
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <h3 id="scoreP">0</h3>
+
+                <div class="row mt-4">
+                    <div class="button">
+                        <button id="startButton" onclick="start()">Start</button>
+                        <button id="newRoundButton" onclick="resetGame()">Neue Runde</button>
                     </div>
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <h3 id="scoreC">0</h3>
+                </div>
+
+                <div class="panel">
+                    <h3 id="decision"></h3>
+                </div>
+            </div>
+
+            <!-- Panneau Score à droite -->
+            <div class="col-lg-3 scorePanel">
+                <div class="panel text-center">
+                    <h2>Score</h2>
+                    <div class="row mt-4 panel">
+                        <div class="col-6">Player</div>
+                        <div class="col-6">Computer</div>
+                    </div>
+                    <div class="row mt-4 panel">
+                        <div class="col-6"><h3 id="scoreP">0</h3></div>
+                        <div class="col-6"><h3 id="scoreC">0</h3></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
-    <footer style="background-color: #f2f2f2; padding: 20px; text-align: center;">
-        <p><i class="fa-solid fa-copyright"></i> 2024 Joel - Mansvell </p>
-    </footer>
-    <!-- die 3 folgenden Scripts modifizieren nichts in dem Code -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <p  style=" padding: 20px; text-align: center;"><strong><i class="fa-solid fa-copyright"></i>Copyright 2024:  Mansvell NK. </strong></p>
+
 </body>
 
 </html>
