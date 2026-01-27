@@ -206,6 +206,37 @@
     </div>
   </section>
 
+  <section id="tab-survival" class="tab-view">
+  <div class="container mt-4" style="max-width: 980px;">
+    <div class="scorePanel">
+      <h2>Survie</h2>
+
+      <div class="d-flex flex-wrap justify-content-center align-items-center" style="gap:12px;">
+        <button class="app-tab-btn" id="survivalStartBtn" type="button">▶️ Démarrer</button>
+        <button class="app-tab-btn" id="survivalRestartBtn" type="button" disabled>🔄 Rejouer</button>
+
+        <div style="font-weight:700;">
+          Temps: <span id="survivalTime">0.00</span>s
+        </div>
+        <div style="font-weight:700;">
+          Meilleur: <span id="survivalBest">0.00</span>s
+        </div>
+      </div>
+
+      <div class="mt-3 d-flex justify-content-center">
+        <canvas id="survivalCanvas" width="640" height="640"
+          style="border:3px solid rgba(255,204,0,0.85); border-radius:16px; background:rgba(255,255,255,0.65); max-width:100%;"></canvas>
+      </div>
+
+      <p class="mt-3 mb-0" id="survivalMsg" style="font-weight:700;"></p>
+      <p class="mb-0" style="opacity:0.8;">
+        Déplace ton point avec la souris. Ne te fais pas toucher. À 10s, un 2ᵉ ennemi apparaît.
+      </p>
+    </div>
+  </div>
+</section>
+
+
     <div class="container mt-5">
         <div class="row">
             <!-- Zone Pokémon -->
