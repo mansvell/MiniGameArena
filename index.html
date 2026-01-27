@@ -8,103 +8,203 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="submit.js" defer></script>
     <style>
-        body {
-            height: 100%;
-            margin: 10px;
-            text-align: center;
-            background: linear-gradient(145deg, #ffffff, #f3bf5d);
-        }
-        header h1 {
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 2.5rem;
-            color: #ffcc00;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
-            border-bottom: 3px solid #ff9900;
-            display: inline-block;
-            padding-bottom: 5px;
-        }
+        
+    body {
+      height: 100%;
+      margin: 10px;
+      text-align: center;
+      background: linear-gradient(145deg, #ffffff, #f3bf5d);
+    }
 
-        header h1 i {
-            margin: 0 5px;
-        }
+    header h1 {
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 2.2rem;
+      color: #ffcc00;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+      border-bottom: 3px solid #ff9900;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
 
-        /* Style cartes Pokémon */
-        .pokemon-card {
-            background: linear-gradient(145deg, #ffffff, #805c18);
-            border: 3px solid #ffcc00;
-            border-radius: 15px;
-            width: 200px;
-            text-align: center;
-            padding: 15px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            cursor: pointer;
-        }
+    header h1 i { margin: 0 6px; }
 
-        .pokemon-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgb(56, 248, 3);
-        }
+    /* --- Tabs (app navigation) --- */
+    .app-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
 
-        .pokemon-card img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
+    .app-tab-btn {
+      border: none;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+      transition: transform .15s ease, background .2s ease;
+      cursor: pointer;
+    }
 
-        /* Nom du Pokémon */
-        .pokemon-card h2 {
-            margin-top: 10px;
-            font-weight: bold;
-            font-family: 'Trebuchet MS', sans-serif;
-            background: rgba(255, 204, 0, 0.8);
-            border-radius: 8px;
-            padding: 5px 10px;
-            color: #333;
-            display: inline-block;
-            text-shadow: 1px 1px #fff;
-        }
+    .app-tab-btn:hover { transform: translateY(-1px); }
+    .app-tab-btn.active {
+      background: linear-gradient(45deg, #ffcc00, #ff9900);
+      color: #fff;
+    }
 
-        /* Boutons Start & New Round */
-        .button button {
-            font-size: 1.2rem;
-            font-weight: bold;
-            padding: 10px 25px;
-            margin: 5px;
-            border-radius: 25px;
-            border: none;
-            background: linear-gradient(45deg, #ffcc00, #ff9900);
-            color: white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            transition: transform 0.2s ease, background 0.3s ease;
-        }
+    .tab-view { display: none; }
+    .tab-view.active { display: block; }
 
-        .button button:hover {
-            transform: scale(1.05);
-            background: linear-gradient(45deg, #ffdd33, #ff6600);
-        }
+    /* Style cartes (tu peux plus tard remplacer les images Pokémon par rock/paper/scissors) */
+    .pokemon-card {
+      background: linear-gradient(145deg, #ffffff, #805c18);
+      border: 3px solid #ffcc00;
+      border-radius: 15px;
+      width: 200px;
+      text-align: center;
+      padding: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      margin: 0 auto;
+    }
 
-        /* Panel score stylé */
-        .scorePanel {
-            background: linear-gradient(145deg, #ffffff, #805c18);
-            border: 3px solid #ffcc00;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-        }
+    .pokemon-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgb(56, 248, 3);
+    }
 
-        .scorePanel h2 {
-            font-family: 'Trebuchet MS', sans-serif;
-            font-weight: bold;
-            color: #ff9900;
-        }
+    .pokemon-card img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
 
+    .pokemon-card h2 {
+      margin-top: 10px;
+      font-weight: bold;
+      font-family: 'Trebuchet MS', sans-serif;
+      background: rgba(255, 204, 0, 0.8);
+      border-radius: 8px;
+      padding: 5px 10px;
+      color: #333;
+      display: inline-block;
+      text-shadow: 1px 1px #fff;
+    }
 
-    </style>
+    .button button {
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 10px 25px;
+      margin: 5px;
+      border-radius: 25px;
+      border: none;
+      background: linear-gradient(45deg, #ffcc00, #ff9900);
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+
+    .button button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(45deg, #ffdd33, #ff6600);
+    }
+
+    .scorePanel {
+      background: linear-gradient(145deg, #ffffff, #805c18);
+      border: 3px solid #ffcc00;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    .scorePanel h2 {
+      font-family: 'Trebuchet MS', sans-serif;
+      font-weight: bold;
+      color: #ff9900;
+    }
+
+    /* --- Dark mode (on activera via JS plus tard) --- */
+    body.dark {
+      background: linear-gradient(145deg, #0b1020, #2b1a00);
+      color: rgba(255,255,255,0.9);
+    }
+    body.dark .app-tab-btn { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.9); }
+    body.dark .pokemon-card, body.dark .scorePanel {
+      background: linear-gradient(145deg, rgba(255,255,255,0.10), rgba(255,153,0,0.10));
+      border-color: rgba(255,204,0,0.7);
+    }
+  </style>
 </head>
 <body>
     <header class="text-center">
-        <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"> Feuer<i style="color:red;" class=" fa-solid fa-fire"></i> - Wasser<i style="color:blue" class=" fa-solid fa-water"></i> - Pflanze<i style="color:greenyellow" class=" fa-solid fa-seedling"></i></h1>
-    </header>
+    <h1>
+      Mini Game Arena
+      <i style="color:red;" class="fa-solid fa-fire"></i>
+      <i style="color:deepskyblue" class="fa-solid fa-hand"></i>
+      <i style="color:greenyellow" class="fa-solid fa-seedling"></i>
+    </h1>
+
+    
+    <div class="app-tabs">
+      <button class="app-tab-btn active" data-tab="game">🕹️ Jeu</button>
+      <button class="app-tab-btn" data-tab="rules">📜 Règles</button>
+      <button class="app-tab-btn" data-tab="stats">📊 Stats</button>
+      <button class="app-tab-btn" data-tab="settings">⚙️ Paramètres</button>
+    </div>
+  </header>
+
+  <section id="tab-rules" class="tab-view">
+    <div class="container mt-4" style="max-width: 900px;">
+      <div class="scorePanel text-left">
+        <h2 class="text-center mb-3">Règles du jeu</h2>
+        <p>
+          Le jeu oppose <strong>Player</strong> et <strong>Computer</strong>. Le joueur choisit une option, puis le PC choisit aléatoirement.
+        </p>
+        <ul>
+          <li><strong>Pierre</strong> bat <strong>Ciseaux</strong></li>
+          <li><strong>Ciseaux</strong> bat <strong>Papier</strong></li>
+          <li><strong>Papier</strong> bat <strong>Pierre</strong></li>
+        </ul>
+        <p class="mb-0">
+          Objectif : gagner un maximum de manches. Les scores s’affichent dans l’onglet Jeu.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB: STATS            -->
+  <section id="tab-stats" class="tab-view">
+    <div class="container mt-4" style="max-width: 900px;">
+      <div class="scorePanel">
+        <h2>Statistiques</h2>
+        <p class="mb-0">
+          Ici on affichera bientôt : parties jouées, victoires/défaites/nuls, winrate %, meilleure série (streak), etc.
+        </p>
+      </div>
+    </div>
+  </section>
+
+ 
+  <!-- TAB: SETTINGS         -->
+  <section id="tab-settings" class="tab-view">
+    <div class="container mt-4" style="max-width: 900px;">
+      <div class="scorePanel">
+        <h2>Paramètres</h2>
+
+        <div class="mt-3">
+          <button class="app-tab-btn" id="toggleThemeBtn" type="button">🌙 Activer/Désactiver Dark Mode</button>
+          <button class="app-tab-btn" id="resetStatsBtn" type="button">🧹 Reset stats (à venir)</button>
+        </div>
+
+        <p class="mt-3 mb-0" style="opacity:0.8;">
+          (Ces boutons seront branchés dans la prochaine étape côté JS.)
+        </p>
+      </div>
+    </div>
+  </section>
 
     <div class="container mt-5">
         <div class="row">
@@ -154,7 +254,7 @@
                     </div>
                 </div>
 
-                <div class="panel">
+                <div class="panel mt-3">
                     <h3 id="decision"></h3>
                 </div>
             </div>
@@ -176,9 +276,43 @@
         </div>
     </div>
 
-    <p  style=" padding: 20px; text-align: center;"><strong><i class="fa-solid fa-copyright"></i>Copyright 2024:  Mansvell NK. </strong></p>
+    
 
-</body>
 
+  <!-- Mini script de navigation tabs (safe, n'interfère pas avec submit.js) -->
+  <script>
+    (function() {
+      const btns = document.querySelectorAll('.app-tab-btn[data-tab]');
+      const views = {
+        game: document.getElementById('tab-game'),
+        rules: document.getElementById('tab-rules'),
+        stats: document.getElementById('tab-stats'),
+        settings: document.getElementById('tab-settings'),
+      };
+
+      function openTab(name) {
+        Object.values(views).forEach(v => v && v.classList.remove('active'));
+        btns.forEach(b => b.classList.remove('active'));
+        const view = views[name];
+        if (view) view.classList.add('active');
+        const btn = Array.from(btns).find(b => b.getAttribute('data-tab') === name);
+        if (btn) btn.classList.add('active');
+      }
+
+      btns.forEach(btn => {
+        btn.addEventListener('click', () => openTab(btn.getAttribute('data-tab')));
+      });
+
+      // Bonus: toggle theme (temporaire, on fera mieux avec localStorage après)
+      const toggleThemeBtn = document.getElementById('toggleThemeBtn');
+      if (toggleThemeBtn) {
+        toggleThemeBtn.addEventListener('click', () => document.body.classList.toggle('dark'));
+      }
+    })();
+  </script>
+    <footer>
+        <p  style=" padding: 20px; text-align: center;"><strong><i class="fa-solid fa-copyright"></i>Copyright 2024:  Mansvell NK. </strong></p>
+    </footer>
+    </body>
 </html>
 
