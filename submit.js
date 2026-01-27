@@ -229,3 +229,5 @@ document.addEventListener("DOMContentLoaded", setup);
 window.start = start;
 window.play = play;
 window.resetGame = resetGame;
+
+
