@@ -216,7 +216,8 @@ function setup() {
   renderStatsTab();
   applySavedTheme();
 
-  const themeBtn = document.getElementById("toggleThemeBtn");
+  const themeBtn = document.getElementById("toggleThemeBtn") || document.getElementById("toggleThemeBtnSettings");
+
   if (themeBtn) themeBtn.addEventListener("click", toggleTheme);
 
   const resetStatsBtn = document.getElementById("resetStatsBtn");

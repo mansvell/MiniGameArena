@@ -1,6 +1,4 @@
-// ===============================
 // SURVIVAL DODGE (mode infini)
-// ===============================
 (function () {
   const BEST_KEY = "miniArena.survival.best.v1";
 
@@ -11,6 +9,9 @@
   let rafId = null;
   let lastT = 0;
   let startTime = 0;
+
+  //game over 
+    let overlayEl, overlayTimeEl;
 
   // Zone (canvas)
   const W = 640, H = 640;
@@ -112,6 +113,29 @@
 
     if (rafId) cancelAnimationFrame(rafId);
     rafId = null;
+
+    // Overlay "Game Over" (3s)
+    if (overlayEl) {
+      overlayEl.classList.remove("hidden");
+      overlayEl.classList.add("flex");
+
+    
+      const box = overlayEl.querySelector("div");
+      if (box) {
+        box.classList.remove("go-pop", "go-shake");
+        
+        void box.offsetWidth;
+        box.classList.add("go-pop", "go-shake");
+      }
+
+      if (overlayTimeEl) overlayTimeEl.textContent = `Temps: ${survivedSeconds.toFixed(2)}s`;
+
+      setTimeout(() => {
+        overlayEl.classList.add("hidden");
+        overlayEl.classList.remove("flex");
+      }, 3000);
+    }
+
   }
 
   function update(dt, elapsed) {
@@ -232,6 +256,9 @@
     timeEl = document.getElementById("survivalTime");
     bestEl = document.getElementById("survivalBest");
     msgEl = document.getElementById("survivalMsg");
+      overlayEl = document.getElementById("gameOverOverlay");
+      overlayTimeEl = document.getElementById("gameOverTime");
+
 
     canvas.width = W;
     canvas.height = H;

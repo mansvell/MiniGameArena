@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jagd - Mini Game Arena</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          boxShadow: {
+            soft: '0 18px 55px rgba(0,0,0,.18)',
+            softDark: '0 22px 70px rgba(0,0,0,.55)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+  @keyframes fadeUp { from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:translateY(0)} }
+  .anim-up{ animation: fadeUp .65s ease-out both; }
+
+  /* GAME OVER anim */
+  @keyframes goPop { 0%{opacity:0; transform:scale(.85)} 60%{opacity:1; transform:scale(1.03)} 100%{opacity:1; transform:scale(1)} }
+  @keyframes goShake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }
+  .go-pop { animation: goPop .35s ease-out both; }
+  .go-shake { animation: goShake .35s ease-in-out .08s both; }
+</style>
+
+</head>
+
+<body class="min-h-screen overflow-y-auto lg:h-screen lg:overflow-hidden bg-gradient-to-br from-white to-amber-800 text-slate-900 dark:from-neutral-950 dark:to-neutral-900 dark:text-white">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-10 backdrop-blur-md bg-white/35 dark:bg-black/45 border-b border-white/35 dark:border-white/10">
+    <div class="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between gap-4">
+      <a href="../../index.html"
+         class="inline-flex items-center gap-2 font-extrabold rounded-full px-4 py-2
+                bg-white/60 dark:bg-white/10 ring-1 ring-white/35 dark:ring-white/10
+                hover:-translate-y-[1px] transition">
+        ← Menu
+      </a>
+
+      <h1 class="font-extrabold text-lg sm:text-xl rounded-full px-5 py-2
+                 bg-white/55 dark:bg-white/5 ring-2 ring-white/35 dark:ring-white/10 shadow-soft dark:shadow-softDark">
+        Jagd
+      </h1>
+
+      <button id="toggleThemeBtn"
+              class="rounded-full px-4 py-2 font-extrabold
+                     bg-white/60 dark:bg-white/10
+                     ring-1 ring-white/35 dark:ring-white/10
+                     hover:-translate-y-[1px] hover:brightness-105 transition shadow">
+        🌙
+      </button>
+    </div>
+  </header>
+
+  <!-- Main layout (no vertical scroll) -->
+  <main class="mx-auto max-w-7xl px-4 pt-4 pb-4 lg:h-[calc(100vh-76px)]">
+    <div class="grid grid-cols-12 gap-4 h-full anim-up">
+
+      <!-- Left: controls + times -->
+      <aside class="col-span-12 lg:col-span-3 lg:h-full">
+        <div class="h-full rounded-3xl p-5
+                    bg-white/65 dark:bg-white/7
+                    ring-1 ring-white/35 dark:ring-white/10
+                    shadow-soft dark:shadow-softDark">
+          <h2 class="text-lg font-extrabold text-orange-600 dark:text-amber-300">Contrôles</h2>
+
+          <div class="mt-4 grid grid-cols-2 lg:grid-cols-1 gap-3">
+            <button id="survivalStartBtn" type="button"
+                    class="rounded-full px-5 py-3 font-extrabold text-white
+                           bg-gradient-to-r from-amber-300 to-orange-500
+                           hover:-translate-y-[1px] hover:brightness-105 transition shadow">
+              ▶️ Démarrer
+            </button>
+
+            <button id="survivalRestartBtn" type="button" disabled
+                    class="rounded-full px-5 py-3 font-extrabold
+                           bg-white/60 dark:bg-white/10
+                           ring-1 ring-white/35 dark:ring-white/10
+                           opacity-60 disabled:cursor-not-allowed">
+              🔄 Rejouer
+            </button>
+          </div>
+
+          <div class="mt-5 grid grid-cols-2 lg:grid-cols-1 gap-3">
+            <div class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
+              <div class="text-sm font-bold opacity-75">Temps</div>
+              <div class="text-2xl font-extrabold"><span id="survivalTime">0.00</span><span class="text-base font-bold opacity-70">s</span></div>
+            </div>
+
+            <div class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
+              <div class="text-sm font-bold opacity-75">Meilleur</div>
+              <div class="text-2xl font-extrabold"><span id="survivalBest">0.00</span><span class="text-base font-bold opacity-70">s</span></div>
+            </div>
+          </div>
+
+          <p id="survivalMsg" class="mt-5 font-extrabold"></p>
+
+          <p class="mt-3 text-sm font-semibold opacity-80">
+            Déplace ton point avec la souris. Ne te fais pas toucher.
+            À <span class="font-extrabold">10s</span>, un 2ᵉ ennemi apparaît.
+          </p>
+        </div>
+      </aside>
+
+      <!-- Center: game canvas -->
+      <section class="col-span-12 lg:col-span-6 lg:h-full">
+        <div class="h-full rounded-3xl p-4 flex items-center justify-center
+                    bg-white/65 dark:bg-white/7
+                    ring-1 ring-white/35 dark:ring-white/10
+                    shadow-soft dark:shadow-softDark">
+
+          <canvas id="survivalCanvas" width="640" height="640"
+                  class="w-full h-auto max-h-[calc(100vh-140px)] aspect-square
+                         rounded-2xl
+                         ring-4 ring-amber-300/80 dark:ring-amber-300/50
+                         bg-white/50 dark:bg-white/5
+                         shadow"></canvas>
+        </div>
+      </section>
+
+     
+      <aside class="col-span-12 lg:col-span-3 lg:h-full">
+        <div class="h-full rounded-3xl p-5
+                    bg-white/65 dark:bg-white/7
+                    ring-1 ring-white/35 dark:ring-white/10
+                    shadow-soft dark:shadow-softDark">
+          <h2 class="text-lg font-extrabold text-orange-600 dark:text-amber-300">Règles</h2>
+
+          <ul class="mt-4 space-y-3 text-sm font-semibold opacity-90">
+            <li class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
+              🎯 Objectif: survivre le plus longtemps possible.
+            </li>
+            <li class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
+              🖱️ Contrôle: diriger votre pion grace a la souris.
+            </li>
+            <li class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
+              ⚠️ À 10 secondes: un 2ᵉ ennemi apparaît et la vitesse augmente avec le temps.
+            </li>
+            <li class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
+              💥 Fin: si un ennemi te touche, la partie s’arrête et le record est sauvegardé.
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- GAME OVER-->
+<div id="gameOverOverlay"
+     class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm">
+  <div class="mx-4 w-full max-w-xl rounded-3xl p-8 text-center
+              bg-white/80 ring-2 ring-amber-300/70 shadow-2xl
+              dark:bg-neutral-950/70 dark:ring-white/10">
+    <div class="text-5xl sm:text-6xl font-extrabold tracking-tight text-red-600 dark:text-red-400">
+      GAME OVER
+    </div>
+    <div id="gameOverTime"
+         class="mt-3 text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">
+      —
+    </div>
+  </div>
+</div>
+
+
+  <!-- thème commun -->
+  <script src="../../js/app.js"></script>
+ 
+  <script src="jagd.js"></script>
+</body>
+</html>
