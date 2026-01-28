@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Cards - Mini Game Arena</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: {} }
+    }
+  </script>
+
+  <!-- Animations only -->
+  <style>
+    @keyframes pop { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+    @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }
+    @keyframes flipIn { from{transform:rotateY(0)} to{transform:rotateY(180deg)} }
+    .anim-pop{ animation: pop .25s ease-out both; }
+    .anim-shake{ animation: shake .35s ease-in-out both; }
+  </style>
+
+  <script src="memory.js" defer></script>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-white to-amber-800 text-slate-900 dark:from-neutral-950 dark:to-neutral-900 dark:text-white">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-10 backdrop-blur-md bg-white/35 dark:bg-black/45 border-b border-white/35 dark:border-white/10">
+    <div class="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between gap-4">
+      <a href="../../index.html"
+         class="inline-flex items-center gap-2 font-extrabold rounded-full px-4 py-2
+                bg-white/60 dark:bg-white/10 ring-1 ring-white/35 dark:ring-white/10
+                hover:-translate-y-[1px] transition">
+        ← Menu
+      </a>
+
+      <h1 class="font-extrabold text-lg sm:text-xl rounded-full px-5 py-2
+                 bg-white/55 dark:bg-white/5 ring-2 ring-white/35 dark:ring-white/10">
+        🃏 Memory Cards
+      </h1>
+
+      <button id="toggleThemeBtn" type="button"
+              class="rounded-full px-4 py-2 font-extrabold
+                     bg-white/60 dark:bg-white/10 ring-1 ring-white/35 dark:ring-white/10
+                     hover:-translate-y-[1px] hover:brightness-105 transition shadow">
+        🌙
+      </button>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-4 py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+      <!-- Left: Controls / stats -->
+      <aside class="lg:col-span-4">
+        <div class="rounded-3xl p-6 bg-white/65 dark:bg-white/7 ring-1 ring-white/35 dark:ring-white/10 shadow">
+          <h2 class="text-xl font-extrabold text-orange-600 dark:text-amber-300">Objectif</h2>
+          <p class="mt-2 font-semibold opacity-85">
+            Trouve toutes les <span class="font-extrabold">paires</span>.
+            Tableau <span class="font-extrabold">5×5</span> (24 cartes + 1 logo).
+          </p>
+
+          <div class="mt-5 grid grid-cols-2 gap-3">
+            <button id="mcStartBtn"
+                    class="rounded-full px-5 py-3 font-extrabold text-white
+                           bg-gradient-to-r from-amber-300 to-orange-500
+                           hover:-translate-y-[1px] hover:brightness-110 transition shadow">
+              ▶️ Start
+            </button>
+
+            <button id="mcNewBtn"
+                    class="rounded-full px-5 py-3 font-extrabold
+                           bg-white/60 dark:bg-white/10
+                           ring-1 ring-white/35 dark:ring-white/10
+                           hover:-translate-y-[1px] transition">
+              🔄 Nouveau
+            </button>
+          </div>
+
+          <div class="mt-6 grid grid-cols-2 gap-3">
+            <div class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
+              <div class="text-sm font-bold opacity-70">Temps</div>
+              <div class="text-3xl font-extrabold mt-1"><span id="mcTime">0.0</span>s</div>
+            </div>
+
+            <div class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
+              <div class="text-sm font-bold opacity-70">Coups</div>
+              <div class="text-3xl font-extrabold mt-1" id="mcMoves">0</div>
+            </div>
+
+            <div class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
+              <div class="text-sm font-bold opacity-70">Paires</div>
+              <div class="text-3xl font-extrabold mt-1"><span id="mcPairs">0</span>/12</div>
+            </div>
+
+            <div class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
+              <div class="text-sm font-bold opacity-70">Meilleur</div>
+              <div class="text-sm font-extrabold mt-1">
+                <span id="mcBestTime">—</span>s • <span id="mcBestMoves">—</span> coups
+              </div>
+            </div>
+          </div>
+           <p class="mt-1 text-sm font-semibold opacity-75">Retourne 2 cartes. Si elles matchent → paire.</p>
+          <p id="mcHint" class="mt-5 font-extrabold"></p>
+        </div>
+      </aside>
+
+      <!-- Right: Board -->
+      <section class="lg:col-span-8">
+        <div class="rounded-3xl p-6 bg-white/65 dark:bg-white/7 ring-1 ring-white/35 dark:ring-white/10 shadow relative overflow-hidden">
+          <div class="flex items-end justify-between flex-wrap gap-3">
+            
+            <div class="text-sm font-bold opacity-75">
+              État : <span id="mcStatus" class="font-extrabold">Prêt</span>
+            </div>
+          </div>
+
+          <!-- creation du board 5x5
+          <div id="mcBoard" class="mt-5 grid grid-cols-5 gap-2 sm:gap-3"></div>-->
+          <div id="mcBoard"
+              class="mt-5 grid grid-cols-5 gap-2 sm:gap-3 lg:gap-2 max-w-[620px] lg:max-w-[520px] xl:max-w-[560px] mx-auto">
+          </div>
+
+          <!-- Countdown overlay -->
+          <div id="mcCountdown" class="absolute inset-0 hidden items-center justify-center bg-black/55 backdrop-blur-sm">
+            <div class="rounded-3xl px-10 py-8 text-center bg-white/85 dark:bg-neutral-950/70 ring-2 ring-amber-300/60 dark:ring-white/10">
+              <div class="text-sm font-extrabold opacity-80">Début dans</div>
+              <div id="mcCountNum" class="mt-2 text-6xl sm:text-7xl font-extrabold text-orange-600 dark:text-amber-300">3</div>
+              <div class="mt-3 text-sm font-semibold opacity-80">Mémorise vite…</div>
+            </div>
+          </div>
+
+          <!-- Win overlay -->
+          <div id="mcWin" class="absolute inset-0 hidden items-center justify-center bg-black/60 backdrop-blur-sm">
+            <div id="mcWinBox"
+                 class="mx-4 w-full max-w-xl rounded-3xl p-8 text-center
+                        bg-white/85 dark:bg-neutral-950/70 ring-2 ring-emerald-400/60 dark:ring-white/10">
+              <div class="text-5xl sm:text-6xl font-extrabold text-emerald-600 dark:text-emerald-400">
+                BRAVO !
+              </div>
+              <div id="mcWinText" class="mt-3 text-xl font-extrabold">—</div>
+              <div class="mt-4 text-sm font-semibold opacity-80">
+                Clique sur Nouveau pour rejouer.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <footer class="mt-8 text-center text-sm font-bold opacity-75">
+      © 2025 Mansvell NKWANGA • Mini Game Arena
+    </footer>
+  </main>
+
+  <script src="../../js/app.js"></script>
+</body>
+</html>
