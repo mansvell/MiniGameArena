@@ -28,9 +28,9 @@
   let best = 0;
 
   // Timing (ms)
-  let intervalMs = 1100;     // vitesse initiale (shuffle toutes les ~1.1s)
-  const MIN_INTERVAL = 360;  // vitesse max (limite)
-  const SPEEDUP = 0.92;      // à chaque point: intervalMs *= 0.92 (donc plus rapide)
+  let intervalMs = 800;     // vitesse initiale (shuffle toutes les ~1.1s)
+  const MIN_INTERVAL = 800;  // vitesse max (limite)
+  const SPEEDUP = 1;      // à chaque point: intervalMs *= 0.92 (donc plus rapide)
 
   // Gestion du "deadline"
   let tickTimer = null;      // timeout du shuffle courant
@@ -121,7 +121,7 @@ function applyTileColor(btn, colorClass) {
   function onMissedGreen() {
     if (!running) return;
     if (expectingGreen) {
-      gameOver("Tu as raté le vert 😵");
+      gameOver("Tu as raté le vert😂😂😂");
     }
   }
 
@@ -163,8 +163,8 @@ function applyTileColor(btn, colorClass) {
 
       score += 1;
 
-      // accélère progressivement
-      intervalMs = Math.max(MIN_INTERVAL, Math.round(intervalMs * SPEEDUP));
+      
+      //intervalMs = Math.max(MIN_INTERVAL, Math.round(intervalMs * SPEEDUP)); // accélère progressivement
 
       // update best
       if (score > best) {
