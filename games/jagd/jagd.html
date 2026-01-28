@@ -35,7 +35,7 @@
 
 <body class="min-h-screen overflow-y-auto lg:h-screen lg:overflow-hidden bg-gradient-to-br from-white to-amber-800 text-slate-900 dark:from-neutral-950 dark:to-neutral-900 dark:text-white">
 
-  <!-- Header -->
+
   <header class="sticky top-0 z-10 backdrop-blur-md bg-white/35 dark:bg-black/45 border-b border-white/35 dark:border-white/10">
     <div class="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between gap-4">
       <a href="../../index.html"
@@ -60,31 +60,26 @@
     </div>
   </header>
 
-  <!-- Main layout (no vertical scroll) -->
+
   <main class="mx-auto max-w-7xl px-4 pt-4 pb-4 lg:h-[calc(100vh-76px)]">
     <div class="grid grid-cols-12 gap-4 h-full anim-up">
 
-      <!-- Left: controls + times -->
+  
       <aside class="col-span-12 lg:col-span-3 lg:h-full">
-        <div class="h-full rounded-3xl p-5
-                    bg-white/65 dark:bg-white/7
-                    ring-1 ring-white/35 dark:ring-white/10
+        <div class="h-full rounded-3xl p-5 bg-white/65 dark:bg-white/7 ring-1 ring-white/35 dark:ring-white/10
                     shadow-soft dark:shadow-softDark">
           <h2 class="text-lg font-extrabold text-orange-600 dark:text-amber-300">Contrôles</h2>
 
           <div class="mt-4 grid grid-cols-2 lg:grid-cols-1 gap-3">
             <button id="survivalStartBtn" type="button"
-                    class="rounded-full px-5 py-3 font-extrabold text-white
-                           bg-gradient-to-r from-amber-300 to-orange-500
+                    class="rounded-full px-5 py-3 font-extrabold text-white bg-gradient-to-r from-amber-300 to-orange-500
                            hover:-translate-y-[1px] hover:brightness-105 transition shadow">
               ▶️ Démarrer
             </button>
 
             <button id="survivalRestartBtn" type="button" disabled
-                    class="rounded-full px-5 py-3 font-extrabold
-                           bg-white/60 dark:bg-white/10
-                           ring-1 ring-white/35 dark:ring-white/10
-                           opacity-60 disabled:cursor-not-allowed">
+                    class="rounded-full px-5 py-3 font-extrabold bg-white/60 dark:bg-white/10
+                           ring-1 ring-white/35 dark:ring-white/10 opacity-60 disabled:cursor-not-allowed">
               🔄 Rejouer
             </button>
           </div>
@@ -112,17 +107,12 @@
 
       <!-- Center: game canvas -->
       <section class="col-span-12 lg:col-span-6 lg:h-full">
-        <div class="h-full rounded-3xl p-4 flex items-center justify-center
-                    bg-white/65 dark:bg-white/7
-                    ring-1 ring-white/35 dark:ring-white/10
-                    shadow-soft dark:shadow-softDark">
+        <div class="h-full rounded-3xl p-4 flex items-center justify-center bg-white/65 dark:bg-white/7
+                    ring-1 ring-white/35 dark:ring-white/10 shadow-soft dark:shadow-softDark">
 
           <canvas id="survivalCanvas" width="640" height="640"
                   class="w-full h-auto max-h-[calc(100vh-140px)] aspect-square
-                         rounded-2xl
-                         ring-4 ring-amber-300/80 dark:ring-amber-300/50
-                         bg-white/50 dark:bg-white/5
-                         shadow"></canvas>
+                         rounded-2xl ring-4 ring-amber-300/80 dark:ring-amber-300/50 bg-white/50 dark:bg-white/5 shadow"></canvas>
         </div>
       </section>
 
@@ -135,17 +125,17 @@
           <h2 class="text-lg font-extrabold text-orange-600 dark:text-amber-300">Règles</h2>
 
           <ul class="mt-4 space-y-3 text-sm font-semibold opacity-90">
-            <li class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
-              🎯 Objectif: survivre le plus longtemps possible.
+            <li class="rounded-2xl p-4 bg-gradient-to-r from-amber-300 to-orange-500 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
+               Objectif: survivre le plus longtemps possible.
             </li>
-            <li class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
-              🖱️ Contrôle: diriger votre pion grace a la souris.
+            <li class="rounded-2xl p-4 bg-gradient-to-r from-amber-300 to-orange-500 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
+               Contrôle: diriger votre pion grace à la souris.
             </li>
-            <li class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
-              ⚠️ À 10 secondes: un 2ᵉ ennemi apparaît et la vitesse augmente avec le temps.
+            <li class="rounded-2xl p-4 bg-gradient-to-r from-amber-300 to-orange-500 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
+               Après 10 secondes, un 2ᵉ ennemi apparaît et la vitesse augmente avec le temps.
             </li>
-            <li class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
-              💥 Fin: si un ennemi te touche, la partie s’arrête et le record est sauvegardé.
+            <li class="rounded-2xl p-4 bg-gradient-to-r from-amber-300 to-orange-500 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
+              Fin: si un ennemi te touche, la partie s’arrête et le record est sauvegardé.
             </li>
           </ul>
         </div>
