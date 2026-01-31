@@ -267,7 +267,7 @@ function applyTileColor(btn, colorClass) {
     startBtn.disabled = false;
 
     setStatus("Perdu");
-    setHint("Clique Start pour rejouer.");
+    setHint("Cliquez Start pour rejouer.");
     updateHUD();
 
     showGameOver(reason);
@@ -289,7 +289,6 @@ function applyTileColor(btn, colorClass) {
     startBtn.disabled = false;
 
     setStatus("Prêt");
-    setHint("Clique Start. Puis tape le vert.");
     updateHUD();
 
     // remet un shuffle “neutre” (juste pour joli)

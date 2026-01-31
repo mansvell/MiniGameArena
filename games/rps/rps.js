@@ -141,12 +141,12 @@ function start() {
   const result = getResult(select, i);
 
   if (result === "DRAW") {
-    if (dec) dec.innerText = `ÉGALITÉ ! (${names[select]} vs ${names[i]})`;
+    if (dec) dec.innerText = `ÉGALITÉ ! `;
   } else if (result === "WIN") {
-    if (dec) dec.innerText = `GAGNÉ ! (${names[select]} bat ${names[i]})`;
+    if (dec) dec.innerText = `GAGNÉ ! `;
     scorePl++;
   } else {
-    if (dec) dec.innerText = `PERDU ! (${names[i]} bat ${names[select]})`;
+    if (dec) dec.innerText = `PERDU ! `;
     scoreC++;
   }
 

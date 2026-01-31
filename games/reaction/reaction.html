@@ -38,7 +38,7 @@
 
       <h1 class="font-extrabold text-lg sm:text-xl rounded-full px-5 py-2
                  bg-white/55 dark:bg-white/5 ring-2 ring-white/35 dark:ring-white/10">
-        🟩 Green Tap
+        🟩 reaction time
       </h1>
 
       <button id="toggleThemeBtn" type="button"
@@ -58,8 +58,8 @@
         <div class="rounded-3xl p-6 bg-white/65 dark:bg-white/7 ring-1 ring-white/35 dark:ring-white/10 shadow">
           <h2 class="text-xl font-extrabold text-orange-600 dark:text-amber-300">Règle</h2>
           <p class="mt-2 font-semibold opacity-85">
-            Clique <span class="font-extrabold">UNIQUEMENT</span> sur la case <span class="font-extrabold">VERTE</span>.
-            La vitesse augmente à chaque point.
+            Cliquez <span class="font-extrabold">UNIQUEMENT</span> sur la case <span class="font-extrabold">VERTE</span>.
+            La vitesse d'apparition augmentera  avec le temps
           </p>
 
           <div class="mt-5 grid grid-cols-2 gap-3">
@@ -103,24 +103,19 @@
           </div>
 
           <p id="gtHint" class="mt-5 font-extrabold"></p>
-          <p class="mt-2 text-sm font-semibold opacity-75">
-            Sur mobile : tape la case (pas besoin de souris).
-          </p>
+          <div class="flex items-end justify-between flex-wrap gap-3">
+            <div>
+              <p class="mt-1 text-sm font-semibold opacity-75">
+                6 cases changent de couleur. Si vous loupez un vert → perdu.
+              </p>
+            </div>
+          </div>
         </div>
       </aside>
 
       <!-- Right: game -->
       <section class="lg:col-span-8">
         <div class="rounded-3xl p-6 bg-white/65 dark:bg-white/7 ring-1 ring-white/35 dark:ring-white/10 shadow relative overflow-hidden">
-
-          <div class="flex items-end justify-between flex-wrap gap-3">
-            <div>
-              <h2 class="text-xl font-extrabold">Tape le vert</h2>
-              <p class="mt-1 text-sm font-semibold opacity-75">
-                6 cases changent. Si tu rates un vert → perdu.
-              </p>
-            </div>
-          </div>
 
           <!-- Grid: 6 tiles -->
           <div id="gtGrid" class="mt-5 grid grid-cols-3 gap-3 sm:gap-4">
