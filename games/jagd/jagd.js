@@ -26,8 +26,8 @@
 
   // Settings gameplay
   const enemySpeed1 = 120; // px/s
-  const enemySpeed2 = 135; // px/s
-  const accelOverTime = 6; // vitesse augmente doucement avec le temps
+  const enemySpeed2 = 220; // px/s
+  const accelOverTime = 9; // vitesse augmente doucement avec le temps
 
   function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
 
@@ -70,7 +70,7 @@
 
   function resetGame() {
     enemies.length = 0;
-    enemies.push({ x: 80, y: 80, r: 11, baseSpeed: enemySpeed1 });
+    enemies.push({ x: 80, y: 80, r: 20, baseSpeed: enemySpeed1 });
     secondSpawned = false;
     spawnAnim = 0;
 
@@ -78,7 +78,7 @@
     player.y = H / 2;
 
     if (timeEl) timeEl.textContent = "0.00";
-    if (msgEl) msgEl.textContent = "Prêt. Clique sur Démarrer.";
+    
   }
 
   function startGame() {
@@ -150,7 +150,7 @@
       enemies.push({ x: spawnX, y: spawnY, r: 11, baseSpeed: enemySpeed2 });
 
       // petite “animation” via msg + halo
-      if (msgEl) msgEl.textContent = "⚠️ 2e ennemi apparu !";
+      if (msgEl) msgEl.textContent = " 2e ennemi apparu !";
       setTimeout(() => { if (running && msgEl) msgEl.textContent = "Survis !"; }, 900);
     }
 
