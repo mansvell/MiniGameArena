@@ -22,10 +22,9 @@
 </head>
 
 <body class="min-h-screen overflow-y-auto lg:h-screen lg:overflow-hidden bg-gradient-to-br from-white to-amber-800 text-slate-900 dark:from-neutral-950 dark:to-neutral-900 dark:text-white">
-
-  <!-- Header -->
+ 
   <header class="sticky top-0 z-10 backdrop-blur-md bg-white/35 dark:bg-black/45 border-b border-white/35 dark:border-white/10">
-    <div class="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between gap-4">
+    <div class="mx-auto max-w-8xl px-4 py-4 flex items-center justify-between gap-4">
       <a href="../../index.html"
          class="inline-flex items-center gap-2 font-extrabold rounded-full px-4 py-2
                 bg-white/60 dark:bg-white/10 ring-1 ring-white/35 dark:ring-white/10
@@ -52,8 +51,8 @@
   
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:h-full">
 
-      <aside class="lg:col-span-3 lg:h-full">
-        <div class="rounded-3xl p-6 lg:h-full flex flex-col justify-between
+      <aside class="lg:col-span-3 ">
+        <div class="rounded-3xl p-6  flex flex-col justify-between
                     bg-white/65 dark:bg-white/7
                     ring-1 ring-white/35 dark:ring-white/10
                     shadow-soft dark:shadow-softDark">
@@ -125,72 +124,49 @@
         </div>
       </aside>
 
-      <!-- CENTER: Game board -->
-      <section class="lg:col-span-6 lg:h-full">
-        <div class="rounded-3xl p-6 lg:h-full flex flex-col items-center justify-center gap-4
-                    bg-white/65 dark:bg-white/7
-                    ring-1 ring-white/35 dark:ring-white/10
-                    shadow-soft dark:shadow-softDark">
+      <section class="lg:col-span-6 ">
+        <div class="rounded-3xl p-6  flex flex-col items-center justify-center gap-4 bg-white/65 dark:bg-white/7
+                    ring-1 ring-white/35 dark:ring-white/10 shadow-soft dark:shadow-softDark">
 
-          <!-- Display / Flash area -->
+       
           <div id="mcDisplay"
-               class="w-full max-w-[520px] aspect-square rounded-3xl
-                      bg-white/45 dark:bg-white/5
-                      ring-2 ring-white/35 dark:ring-white/10
-                      shadow-inner">
+               class="w-full max-w-[420px] aspect-square rounded-3xl bg-white/45 dark:bg-white/5
+                      ring-2 ring-white/35 dark:ring-white/10 shadow-inner">
           </div>
 
-          <!-- Color buttons -->
           <div class="grid grid-cols-3 gap-3 w-full max-w-[520px]">
-            <button class="rounded-2xl py-4 font-extrabold
-                           bg-white/60 dark:bg-white/10
-                           ring-1 ring-white/35 dark:ring-white/10
-                           hover:-translate-y-[1px] hover:brightness-105 transition active:scale-[0.99]"
+            <button class="rounded-2xl py-4 font-extrabold bg-white/60 dark:bg-white/10
+                           ring-1 ring-white/35 dark:ring-white/10 hover:-translate-y-[1px] hover:brightness-105 transition active:scale-[0.99]"
                     data-color="red">Rouge</button>
 
-            <button class="rounded-2xl py-4 font-extrabold
-                           bg-white/60 dark:bg-white/10
+            <button class="rounded-2xl py-4 font-extrabold bg-white/60 dark:bg-white/10
                            ring-1 ring-white/35 dark:ring-white/10
                            hover:-translate-y-[1px] hover:brightness-105 transition active:scale-[0.99]"
                     data-color="blue">Bleu</button>
 
-            <button class="rounded-2xl py-4 font-extrabold
-                           bg-white/60 dark:bg-white/10
-                           ring-1 ring-white/35 dark:ring-white/10
+            <button class="rounded-2xl py-4 font-extrabold bg-white/60 dark:bg-white/10 ring-1 ring-white/35 dark:ring-white/10
                            hover:-translate-y-[1px] hover:brightness-105 transition active:scale-[0.99]"
                     data-color="green">Vert</button>
 
-            <button class="rounded-2xl py-4 font-extrabold
-                           bg-white/60 dark:bg-white/10
-                           ring-1 ring-white/35 dark:ring-white/10
+            <button class="rounded-2xl py-4 font-extrabold bg-white/60 dark:bg-white/10 ring-1 ring-white/35 dark:ring-white/10
                            hover:-translate-y-[1px] hover:brightness-105 transition active:scale-[0.99]"
                     data-color="yellow">Jaune</button>
 
-            <button class="rounded-2xl py-4 font-extrabold
-                           bg-white/60 dark:bg-white/10
-                           ring-1 ring-white/35 dark:ring-white/10
+            <button class="rounded-2xl py-4 font-extrabold bg-white/60 dark:bg-white/10 ring-1 ring-white/35 dark:ring-white/10
                            hover:-translate-y-[1px] hover:brightness-105 transition active:scale-[0.99]"
                     data-color="purple">Violet</button>
 
-            <button class="rounded-2xl py-4 font-extrabold
-                           bg-white/60 dark:bg-white/10
-                           ring-1 ring-white/35 dark:ring-white/10
+            <button class="rounded-2xl py-4 font-extrabold bg-white/60 dark:bg-white/10 ring-1 ring-white/35 dark:ring-white/10
                            hover:-translate-y-[1px] hover:brightness-105 transition active:scale-[0.99]"
                     data-color="cyan">Cyan</button>
           </div>
-
-          <p class="text-sm font-semibold opacity-75 text-center">
-            Sur téléphone : tape les couleurs (c’est optimisé pour le tactile).
-          </p>
         </div>
       </section>
 
-      <!-- RIGHT: Rules -->
+   
       <aside class="lg:col-span-3 lg:h-full">
-        <div class="rounded-3xl p-6 lg:h-full
-                    bg-white/65 dark:bg-white/7
-                    ring-1 ring-white/35 dark:ring-white/10
-                    shadow-soft dark:shadow-softDark">
+        <div class="rounded-3xl p-6  bg-white/65 dark:bg-white/7
+                    ring-1 ring-white/35 dark:ring-white/10 shadow-soft dark:shadow-softDark">
           <h2 class="text-xl font-extrabold text-orange-600 dark:text-amber-300">Règles</h2>
 
           <p class="mt-3 text-sm font-semibold opacity-90">
