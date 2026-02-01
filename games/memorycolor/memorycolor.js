@@ -12,9 +12,9 @@
     { key: "red",    label: "Rouge",  css: "#ef4444" },
     { key: "blue",   label: "Bleu",   css: "#3b82f6" },
     { key: "green",  label: "Vert",   css: "#22c55e" },
-    { key: "yellow", label: "Jaune",  css: "#f59e0b" },
+    { key: "orange", label: "Jaune",  css: "#f59e0b" },
     { key: "purple", label: "Violet", css: "#a855f7" },
-    { key: "cyan",   label: "Cyan",   css: "#06b6d4" },
+    { key: "black",   label: "Cyan",   css: "#292828" },
   ];
 
   // LocalStorage keys
