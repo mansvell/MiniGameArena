@@ -112,7 +112,10 @@
 
 <body class="min-h-screen bg-gradient-to-br from-white to-amber-800 text-slate-900 dark:from-neutral-950 dark:to-neutral-900 dark:text-white bg-glow">
  
-  <img class="absolute inset-0 h-full w-full object-cover opacity-70" src="bg.png" alt="bg" />
+  <div class="fixed inset-0 -z-10">
+  <img class="h-full w-full object-cover opacity-90" src="bg.png" alt="bg" />
+  <div class="absolute inset-0 bg-black/50"></div>
+</div>
 
   <header class="sticky top-0 z-10 backdrop-blur-md bg-white/35 dark:bg-black/45 border-b border-white/35 dark:border-white/10">
     <div class="mx-auto max-w-8xl px-4 py-4 flex items-center justify-between gap-4 anim-drop">
@@ -129,7 +132,7 @@
   </header>
 
   
-  <main class="mx-auto max-w-6xl px-4 py-10 anim-up">
+  <main class="mx-auto max-w-7xl px-4 py-10 anim-up">
     <div class="flex items-end justify-between flex-wrap gap-3">
       <div>
         <h2 class="text-2xl sm:text-4xl font-extrabold">Bienvenu sur Mini Game Arena</h2>
