@@ -56,6 +56,57 @@
         radial-gradient(closest-side, rgba(255,255,255,.10), transparent 70%),
         radial-gradient(closest-side, rgba(0,0,0,.55), transparent 70%);
     }
+
+    .game-card{
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
+  }
+  .game-card::before{
+    content:"";
+    position:absolute; inset:0;
+    background: radial-gradient(1200px 300px at 20% 0%, rgba(255,255,255,.35), transparent 60%),
+                radial-gradient(900px 380px at 80% 120%, rgba(245,158,11,.30), transparent 55%);
+    opacity:.9;
+    z-index:0;
+  }
+  .game-media{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    transform:scale(1.03);
+    transition:transform .6s ease;
+    filter:saturate(1.05) contrast(1.05);
+    z-index:-2;
+  }
+  .game-overlay{
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.55) 80%);
+    z-index:-1;
+  }
+
+  .game-card:hover .game-media{ transform:scale(1.10); }
+
+  .play-badge{
+    position:absolute; right:18px; top:18px;
+    padding:.45rem .75rem;
+    border-radius:9999px;
+    font-weight:800;
+    background:rgba(255,255,255,.75);
+    backdrop-filter: blur(10px);
+    border:1px solid rgba(255,255,255,.35);
+  }
+  body.dark .play-badge{ background:rgba(0,0,0,.35); border-color:rgba(255,255,255,.12); }
+
+  .card-glow{
+    box-shadow: 0 18px 55px rgba(0,0,0,.18);
+    transition: box-shadow .3s ease, transform .3s ease, filter .3s ease;
+  }
+  .game-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 30px 90px rgba(0,0,0,.28);
+    filter: brightness(1.03);
+  }
   </style>
 </head>
 
@@ -81,71 +132,74 @@
   <main class="mx-auto max-w-6xl px-4 py-10 anim-up">
     <div class="flex items-end justify-between flex-wrap gap-3">
       <div>
-        <h2 class="text-2xl sm:text-3xl font-extrabold">Bienvenu sur Mini Game Arena</h2>
-        <p class="mt-1 font-semibold opacity-80">Une sélection de mini-jeux rapides et propres</p>
+        <h2 class="text-2xl sm:text-4xl font-extrabold">Bienvenu sur Mini Game Arena</h2>
+        <p class="mt-1 font-semibold opacity-80">Des Mini-jeux inovatifs pour vous amuser</p>
       </div>
     </div>
 
-    <div class="mt-8   grid grid-cols-1 md:grid-cols-2 gap-5">
+    <div class="mt-40  grid grid-cols-2 md:grid-cols-4 gap-5">
       
-      <a href="games/rps/rps.html"
-         class="anim-card group rounded-3xl p-6 bg-white/65 dark:bg-white/7
-                ring-1 ring-white/35 dark:ring-white/10 shadow-soft dark:shadow-softDark
-                hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(0,0,0,.22)] transition">
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <p class="mt-2 font-extrabold text-xl opacity-80">Pierre–Papier–Ciseaux🪨📄✂️</p>
-          </div>
-        </div>
+          <a href="games/rps/rps.html" class="anim-card game-card card-glow group rounded-3xl p-6
+                      ring-1 ring-white/35 dark:ring-white/10 bg-white/55 dark:bg-white/7">
 
-        <div class="mt-3 h-1 w-full rounded-full bg-gradient-to-r from-amber-300 to-orange-500 opacity-80"></div>
+            <img class="game-media" src="bgrps.png" alt="rps" />
+            <div class="game-overlay"></div>
+               <div class="relative z-10">
+                 <p class="mt-2 font-extrabold text-2xl text-white drop-shadow">
+                      Pierre–Papier–Ciseaux
+                  </p>
+                <div class="mt-5 h-1 w-full rounded-full bg-gradient-to-r from-amber-300 to-orange-500 opacity-90"></div>
+             </div>
+          </a>
+
+      <a href="games/jagd/jagd.html" class="anim-card game-card card-glow group rounded-3xl p-6
+          ring-1 ring-white/35 dark:ring-white/10 bg-white/55 dark:bg-white/7">
+
+           <img class="game-media" src="bgchasse.png" alt="rps" />
+           <div class="game-overlay"></div>
+             <div class="relative z-10">
+               <p class="mt-2 font-extrabold text-2xl text-white drop-shadow">  Chasse </p>
+            <div class="mt-5 h-1 w-full rounded-full bg-gradient-to-r from-amber-300 to-orange-500 opacity-90"></div>
+          </div>
       </a>
 
-      <a href="games/jagd/jagd.html"
-         class="anim-card group rounded-3xl p-6 bg-white/65 dark:bg-white/7 ring-1 ring-white/35 dark:ring-white/10
-                shadow-soft dark:shadow-softDark hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(0,0,0,.22)] transition">
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <p class="mt-2 font-extrabold text-xl  opacity-80">Chasse 🔵🔴🟣</p>
+      <a href="games/memorycolor/memorycolor.html" class="anim-card game-card card-glow group rounded-3xl p-6
+          ring-1 ring-white/35 dark:ring-white/10 bg-white/55 dark:bg-white/7">
+        <img class="game-media" src="bgmcolor.png" alt="rps" />
+         <div class="game-overlay"></div>
+            <div class="relative z-10">
+              <p class="mt-2 font-extrabold text-2xl text-white drop-shadow"> Memory Color</p>
+            <div class="mt-5 h-1 w-full rounded-full bg-gradient-to-r from-amber-300 to-orange-500 opacity-90"></div>
           </div>
-        </div>
-
-        <div class="mt-5 h-1 w-full rounded-full bg-gradient-to-r from-amber-300 to-orange-500 opacity-80"></div>
       </a>
 
-      <a href="games/reaction/reaction.html"
-           class="anim-card group rounded-3xl p-6 bg-white/65 dark:bg-white/7
-          ring-1 ring-white/35 dark:ring-white/10 shadow-soft dark:shadow-softDark
-          hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(0,0,0,.22)] transition">
-         <div class="flex items-start justify-between gap-4">
-            <p class="mt-2 text-xl font-extrabold opacity-80">Reaction Time🟩</p>
-        </div>
-        <div class="mt-5 h-1 w-full rounded-full bg-gradient-to-r from-amber-300 to-orange-500 opacity-80"></div>
-     </a>
+    <a href="games/memory/memory.html" class="anim-card game-card card-glow group rounded-3xl p-6
+          ring-1 ring-white/35 dark:ring-white/10 bg-white/55 dark:bg-white/7">
 
-    <a href="games/memory/memory.html"
-      class="anim-card group rounded-3xl p-6 bg-white/65 dark:bg-white/7 ring-1 ring-white/35 dark:ring-white/10 shadow-soft dark:shadow-softDark
-                     hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(0,0,0,.22)] transition">
-         <div class="flex items-start justify-between gap-4">
-            <p class="mt-2 text-xl font-extrabold opacity-80">Memory Cards 🃏</p>
-         </div>
-      <div class="mt-5 h-1 w-full rounded-full bg-gradient-to-r from-amber-300 to-orange-500 opacity-80"></div>
+           <img class="game-media" src="bgmcard.png" alt="rps" />
+               <div class="game-overlay"></div>
+                <div class="relative z-10">
+              <p class="mt-2 font-extrabold text-2xl text-white drop-shadow">Memory cards </p>
+           <div class="mt-5 h-1 w-full rounded-full bg-gradient-to-r from-amber-300 to-orange-500 opacity-90"></div>
+          </div>
     </a>
 
-    <a href="games/memorycolor/memorycolor.html"
-      class="anim-card group rounded-3xl p-6 bg-white/65 dark:bg-white/7 ring-1 ring-white/35 dark:ring-white/10 shadow-soft dark:shadow-softDark
-                     hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(0,0,0,.22)] transition">
-         <div class="flex items-start justify-between gap-4">
-            <p class="mt-2 text-xl font-extrabold opacity-80">Memory Color🧠 </p>
-         </div>
-      <div class="mt-5 h-1 w-full rounded-full bg-gradient-to-r from-amber-300 to-orange-500 opacity-80"></div>
+    <a href="games/reaction/reaction.html" class="anim-card game-card card-glow group rounded-3xl p-6
+          ring-1 ring-white/35 dark:ring-white/10 bg-white/55 dark:bg-white/7">
+       <img class="game-media" src="bgrt.png" alt="rps" />
+         <div class="game-overlay"></div>
+         <div class="relative z-10">
+            <p class="mt-2 font-extrabold text-2xl text-white drop-shadow"> Reaction Time </p>
+  
+         <div class="mt-5 h-1 w-full rounded-full bg-gradient-to-r from-amber-300 to-orange-500 opacity-90"></div>
+     </div>
     </a>
 
     </div>
   </main>
 
   <script src="js/app.js"></script>
-  <footer class="mb-10 mt-20 text-center text-sm font-bold opacity-75"> © 2026 Mansvell Nkwanga • Mini Game Arena </footer>
+  <footer class=" mt-20 text-center text-sm bg-gradient-to-br from-white to-amber-800 font-bold opacity-50"> © 2026 Mansvell Nkwanga • Mini Game Arena </footer>
 </body>
 </html>
 
