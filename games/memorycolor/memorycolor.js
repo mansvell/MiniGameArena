@@ -204,7 +204,7 @@
     setPhase("WIN");
 
     const t = currentTimeSeconds();
-    setMsg(`🏆 Bravo ! Tu as réussi le niveau 10 en ${t.toFixed(2)}s`);
+    setMsg(`🏆  niveau 10 in ${t.toFixed(2)}s`);
 
     // best level = 10
     writeBestLevel(MAX_LEVEL);
@@ -234,7 +234,7 @@
     }
 
     // petit “cooldown” visuel
-    setMsg(`✅ Bien ! Niveau ${level} réussi. Niveau ${level+1}…`);
+    setMsg(` Super ! Niveau ${level} erfolgreich  . Niveau ${level+1}…`);
     await sleep(900);
 
     // niveau suivant
@@ -270,7 +270,6 @@
     updateLevelUI();
     resetRunUI();
     setPhase("IDLE");
-    setMsg("Prêt. Clique Démarrer.");
     enableColorButtons(false);
     restartBtn.disabled = true;
     startBtn.disabled = false;

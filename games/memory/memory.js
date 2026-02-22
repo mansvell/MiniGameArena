@@ -234,7 +234,7 @@
       pairs += 1;
 
       pairsEl.textContent = String(pairs);
-      setHint("✅ Paire trouvée !");
+      setHint("✅ Paar gefunden !");
 
       // Laisse ouvertes
       renderCard(first);
@@ -249,7 +249,7 @@
     }
 
     // Pas match => flip back après delay
-    setHint("❌ Pas pareil…");
+    setHint("❌ nicht gleich…");
     setTimeout(() => {
       first.open = false;
       second.open = false;
@@ -413,7 +413,7 @@
     renderBoard();
 
     setStatus("Prêt");
-    setHint("Clique Start. (Compte à rebours 3s)");
+    
 
     startBtn.addEventListener("click", () => {
       if (running) return;

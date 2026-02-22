@@ -34,12 +34,12 @@
          class="inline-flex items-center gap-2 font-extrabold rounded-full px-4 py-2
                 bg-white/60 dark:bg-white/10 ring-1 ring-white/35 dark:ring-white/10
                 hover:-translate-y-[1px] transition">
-        ← Menu
+        ← Menü
       </a>
 
       <h1 class="font-extrabold text-lg sm:text-xl rounded-full px-5 py-2
                  bg-white/55 dark:bg-white/5 ring-2 ring-white/35 dark:ring-white/10">
-        🃏 Memory Cards
+        Memory Cards
       </h1>
 
       <button id="toggleThemeBtn" type="button"
@@ -59,8 +59,7 @@
         <div class="rounded-3xl p-6 bg-white/65 dark:bg-white/7 ring-1 ring-white/35 dark:ring-white/10 shadow">
           <h2 class="text-xl font-extrabold text-orange-600 dark:text-amber-300">Objectif</h2>
           <p class="mt-2 font-semibold opacity-85">
-            Trouve toutes les <span class="font-extrabold">paires</span>.
-            Tableau <span class="font-extrabold">5×5</span> (24 cartes + 1 logo).
+            Finden Sie alle <span class="font-extrabold">Paare</span>.
           </p>
 
           <div class="mt-5 grid grid-cols-2 gap-3">
@@ -68,7 +67,7 @@
                     class="rounded-full px-5 py-3 font-extrabold text-white
                            bg-gradient-to-r from-amber-300 to-orange-500
                            hover:-translate-y-[1px] hover:brightness-110 transition shadow">
-              ▶️ Start
+               spielen
             </button>
 
             <button id="mcNewBtn"
@@ -76,34 +75,34 @@
                            bg-white/60 dark:bg-white/10
                            ring-1 ring-white/35 dark:ring-white/10
                            hover:-translate-y-[1px] transition">
-              🔄 Nouveau
+              erneut spielen
             </button>
           </div>
 
           <div class="mt-6 grid grid-cols-2 gap-3">
             <div class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
-              <div class="text-sm font-bold opacity-70">Temps</div>
+              <div class="text-sm font-bold opacity-70">Zeit</div>
               <div class="text-3xl font-extrabold mt-1"><span id="mcTime">0.0</span>s</div>
             </div>
 
             <div class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
-              <div class="text-sm font-bold opacity-70">Coups</div>
+              <div class="text-sm font-bold opacity-70">Schläge</div>
               <div class="text-3xl font-extrabold mt-1" id="mcMoves">0</div>
             </div>
 
             <div class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
-              <div class="text-sm font-bold opacity-70">Paires</div>
+              <div class="text-sm font-bold opacity-70">Paare</div>
               <div class="text-3xl font-extrabold mt-1"><span id="mcPairs">0</span>/12</div>
             </div>
 
             <div class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
-              <div class="text-sm font-bold opacity-70">Meilleur</div>
+              <div class="text-sm font-bold opacity-70">Best</div>
               <div class="text-sm font-extrabold mt-1">
-                <span id="mcBestTime">—</span>s • <span id="mcBestMoves">—</span> coups
+                <span id="mcBestTime">—</span>s • <span id="mcBestMoves">—</span> Schläge
               </div>
             </div>
           </div>
-           <p class="mt-1 text-sm font-semibold opacity-75">Retourne 2 cartes. Si elles matchent → paire.</p>
+           <p class="mt-1 text-sm font-semibold opacity-75">Drehe 2 Karten um. Wenn sie übereinstimmen → Paar.</p>
           <p id="mcHint" class="mt-5 font-extrabold"></p>
         </div>
       </aside>
@@ -114,7 +113,7 @@
           <div class="flex items-end justify-between flex-wrap gap-3">
             
             <div class="text-sm font-bold opacity-75">
-              État : <span id="mcStatus" class="font-extrabold">Prêt</span>
+              Zustand : <span id="mcStatus" class="font-extrabold">Bereit</span>
             </div>
           </div>
 
@@ -127,9 +126,9 @@
           <!-- Countdown overlay -->
           <div id="mcCountdown" class="absolute inset-0 hidden items-center justify-center bg-black/55 backdrop-blur-sm">
             <div class="rounded-3xl px-10 py-8 text-center bg-white/85 dark:bg-neutral-950/70 ring-2 ring-amber-300/60 dark:ring-white/10">
-              <div class="text-sm font-extrabold opacity-80">Début dans</div>
+              <div class="text-sm font-extrabold opacity-80">anfang in</div>
               <div id="mcCountNum" class="mt-2 text-6xl sm:text-7xl font-extrabold text-orange-600 dark:text-amber-300">3</div>
-              <div class="mt-3 text-sm font-semibold opacity-80">Mémorise vite…</div>
+              <div class="mt-3 text-sm font-semibold opacity-80">Merken Sie schnell…</div>
             </div>
           </div>
 
@@ -139,11 +138,11 @@
                  class="mx-4 w-full max-w-xl rounded-3xl p-8 text-center
                         bg-white/85 dark:bg-neutral-950/70 ring-2 ring-emerald-400/60 dark:ring-white/10">
               <div class="text-5xl sm:text-6xl font-extrabold text-emerald-600 dark:text-emerald-400">
-                BRAVO !
+                Prima !
               </div>
               <div id="mcWinText" class="mt-3 text-xl font-extrabold">—</div>
               <div class="mt-4 text-sm font-semibold opacity-80">
-                Clique sur Nouveau pour rejouer.
+                Klicken Sie auf erneut spielen.
               </div>
             </div>
           </div>

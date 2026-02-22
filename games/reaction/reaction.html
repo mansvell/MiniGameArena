@@ -33,12 +33,12 @@
          class="inline-flex items-center gap-2 font-extrabold rounded-full px-4 py-2
                 bg-white/60 dark:bg-white/10 ring-1 ring-white/35 dark:ring-white/10
                 hover:-translate-y-[1px] transition">
-        ← Menu
+        ← Menü
       </a>
 
       <h1 class="font-extrabold text-lg sm:text-xl rounded-full px-5 py-2
                  bg-white/55 dark:bg-white/5 ring-2 ring-white/35 dark:ring-white/10">
-        🟩 reaction time
+        Reaction time
       </h1>
 
       <button id="toggleThemeBtn" type="button"
@@ -56,10 +56,10 @@
       <!-- Left: info / stats -->
       <aside class="lg:col-span-4">
         <div class="rounded-3xl p-6 bg-white/65 dark:bg-white/7 ring-1 ring-white/35 dark:ring-white/10 shadow">
-          <h2 class="text-xl font-extrabold text-orange-600 dark:text-amber-300">Règle</h2>
+          <h2 class="text-xl font-extrabold text-orange-600 dark:text-amber-300">Regeln</h2>
           <p class="mt-2 font-semibold opacity-85">
-            Cliquez <span class="font-extrabold">UNIQUEMENT</span> sur la case <span class="font-extrabold">VERTE</span>.
-            La vitesse d'apparition augmentera  avec le temps
+            Klicken Sie <span class="font-extrabold">NUR</span> aud das grüne Feld 
+            Die Geschwindigkeit des Auftretens wird  mit der Zeit zunehmen.
           </p>
 
           <div class="mt-5 grid grid-cols-2 gap-3">
@@ -67,7 +67,7 @@
                     class="rounded-full px-5 py-3 font-extrabold text-white
                            bg-gradient-to-r from-amber-300 to-orange-500
                            hover:-translate-y-[1px] hover:brightness-110 transition shadow">
-              ▶️ Start
+              Start
             </button>
 
             <button id="gtResetBtn"
@@ -75,30 +75,30 @@
                            bg-white/60 dark:bg-white/10
                            ring-1 ring-white/35 dark:ring-white/10
                            hover:-translate-y-[1px] transition">
-              🧹 Reset
+               zurücksetzen
             </button>
           </div>
 
           <div class="mt-6 grid grid-cols-2 gap-3">
             <div class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
-              <div class="text-sm font-bold opacity-70">Score</div>
+              <div class="text-sm font-bold opacity-70">Ergebnis</div>
               <div id="gtScore" class="text-3xl font-extrabold mt-1">0</div>
             </div>
 
             <div class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
-              <div class="text-sm font-bold opacity-70">Meilleur</div>
+              <div class="text-sm font-bold opacity-70">Best</div>
               <div id="gtBest" class="text-3xl font-extrabold mt-1">0</div>
             </div>
 
             <div class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
-              <div class="text-sm font-bold opacity-70">Vitesse</div>
+              <div class="text-sm font-bold opacity-70">tempo</div>
               <div id="gtSpeed" class="text-3xl font-extrabold mt-1">—</div>
               <div class="text-xs font-bold opacity-70">ms / shuffle</div>
             </div>
 
             <div class="rounded-2xl p-4 bg-white/55 dark:bg-white/5 ring-1 ring-white/30 dark:ring-white/10">
-              <div class="text-sm font-bold opacity-70">État</div>
-              <div id="gtStatus" class="text-lg font-extrabold mt-1">Prêt</div>
+              <div class="text-sm font-bold opacity-70">Zusatnd</div>
+              <div id="gtStatus" class="text-lg font-extrabold mt-1">Bereit</div>
             </div>
           </div>
 
@@ -106,7 +106,7 @@
           <div class="flex items-end justify-between flex-wrap gap-3">
             <div>
               <p class="mt-1 text-sm font-semibold opacity-75">
-                6 cases changent de couleur. Si vous loupez un vert → perdu.
+                6 Felder ändern ihre Farbe. Wenn Sie ein grünes Feld verpassen → verloren.
               </p>
             </div>
           </div>
@@ -126,9 +126,9 @@
           <div id="gtCountdown"
                class="absolute inset-0 hidden items-center justify-center bg-black/55 backdrop-blur-sm">
             <div class="rounded-3xl px-10 py-8 text-center bg-white/85 dark:bg-neutral-950/70 ring-2 ring-amber-300/60 dark:ring-white/10">
-              <div class="text-sm font-extrabold opacity-80">Début dans</div>
+              <div class="text-sm font-extrabold opacity-80">Anfang in...</div>
               <div id="gtCountNum" class="mt-2 text-6xl sm:text-7xl font-extrabold text-orange-600 dark:text-amber-300">3</div>
-              <div class="mt-3 text-sm font-semibold opacity-80">Prépare-toi…</div>
+              <div class="mt-3 text-sm font-semibold opacity-80">sei bereit…</div>
             </div>
           </div>
 

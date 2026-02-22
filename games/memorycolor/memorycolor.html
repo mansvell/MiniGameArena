@@ -29,7 +29,7 @@
          class="inline-flex items-center gap-2 font-extrabold rounded-full px-4 py-2
                 bg-white/60 dark:bg-white/10 ring-1 ring-white/35 dark:ring-white/10
                 hover:-translate-y-[1px] transition">
-        ← Menu
+        ← Menü
       </a>
 
       <h1 class="font-extrabold text-lg sm:text-xl rounded-full px-5 py-2
@@ -57,14 +57,14 @@
                     ring-1 ring-white/35 dark:ring-white/10
                     shadow-soft dark:shadow-softDark">
           <div>
-            <h2 class="text-xl font-extrabold text-orange-600 dark:text-amber-300">Contrôle</h2>
+            <h2 class="text-xl font-extrabold text-orange-600 dark:text-amber-300">Kontrolle</h2>
 
             <div class="mt-4 flex flex-wrap gap-2">
               <button id="mcStartBtn" type="button"
                       class="rounded-full px-5 py-3 font-extrabold text-white
                              bg-gradient-to-r from-amber-300 to-orange-500
                              hover:-translate-y-[1px] hover:brightness-110 transition shadow">
-                ▶️ Démarrer
+                 spielen
               </button>
 
               <button id="mcRestartBtn" type="button" disabled
@@ -73,7 +73,7 @@
                              ring-1 ring-white/35 dark:ring-white/10
                              disabled:opacity-50 disabled:cursor-not-allowed
                              hover:-translate-y-[1px] transition">
-                🔄 Rejouer
+               erneut spielen
               </button>
             </div>
 
@@ -97,30 +97,26 @@
               </div>
 
               <div class="flex items-center justify-between font-extrabold mt-2">
-                <span>Temps</span>
+                <span>Zeit</span>
                 <span><span id="mcTime">0.00</span>s</span>
               </div>
 
               <div class="flex items-center justify-between font-extrabold mt-2">
-                <span>Meilleur niveau</span>
+                <span>Bestes Niveau</span>
                 <span id="mcBestLevel">—</span>
               </div>
 
               <div class="flex items-center justify-between font-extrabold mt-2">
-                <span>Meilleur temps (10)</span>
+                <span>beste Zeit(10)</span>
                 <span id="mcBestWin">—</span>
               </div>
             </div>
 
             <p id="mcMsg" class="mt-4 font-extrabold"></p>
             <p class="mt-1 text-sm font-semibold opacity-80">
-              Observe la séquence, mémorise, puis clique dans l’ordre.
+              Beobachte die Reihenfolge, merke sie dir und klicke dann in der richtigen Reihenfolge
             </p>
           </div>
-
-          <p class="mt-6 text-sm font-semibold opacity-75">
-            Astuce : dis la séquence dans ta tête (ex: rouge → bleu → jaune…).
-          </p>
         </div>
       </aside>
 
@@ -137,16 +133,16 @@
           <div class="grid grid-cols-3 gap-3 w-full max-w-[520px]">
             <button class="rounded-2xl py-4 font-extrabold bg-white/60 dark:bg-white/10
                            ring-1 ring-white/35 dark:ring-white/10 hover:-translate-y-[1px] hover:brightness-105 transition active:scale-[0.99]"
-                    data-color="red">Rouge</button>
+                    data-color="red">Red</button>
 
             <button class="rounded-2xl py-4 font-extrabold bg-white/60 dark:bg-white/10
                            ring-1 ring-white/35 dark:ring-white/10
                            hover:-translate-y-[1px] hover:brightness-105 transition active:scale-[0.99]"
-                    data-color="blue">Bleu</button>
+                    data-color="blue">Blau</button>
 
             <button class="rounded-2xl py-4 font-extrabold bg-white/60 dark:bg-white/10 ring-1 ring-white/35 dark:ring-white/10
                            hover:-translate-y-[1px] hover:brightness-105 transition active:scale-[0.99]"
-                    data-color="green">Vert</button>
+                    data-color="green">Grün</button>
 
             <button class="rounded-2xl py-4 font-extrabold bg-white/60 dark:bg-white/10 ring-1 ring-white/35 dark:ring-white/10
                            hover:-translate-y-[1px] hover:brightness-105 transition active:scale-[0.99]"
@@ -154,11 +150,11 @@
 
             <button class="rounded-2xl py-4 font-extrabold bg-white/60 dark:bg-white/10 ring-1 ring-white/35 dark:ring-white/10
                            hover:-translate-y-[1px] hover:brightness-105 transition active:scale-[0.99]"
-                    data-color="purple">Violet</button>
+                    data-color="purple">Violett</button>
 
             <button class="rounded-2xl py-4 font-extrabold bg-white/60 dark:bg-white/10 ring-1 ring-white/35 dark:ring-white/10
                            hover:-translate-y-[1px] hover:brightness-105 transition active:scale-[0.99]"
-                    data-color="black">Black</button>
+                    data-color="black">Schwarz</button>
           </div>
         </div>
       </section>
@@ -170,21 +166,21 @@
           <h2 class="text-xl font-extrabold text-orange-600 dark:text-amber-300">Règles</h2>
 
           <p class="mt-3 text-sm font-semibold opacity-90">
-            Une séquence de couleurs s’affiche une par une.
-            Tu as ensuite <strong>5 secondes</strong> pour mémoriser.
-            Puis ton timer démarre : clique les couleurs dans <strong>le même ordre</strong>.
+            Eine Farbreihenfolge wird nacheinander angezeigt.
+            Du hast dann <strong>5 Sekunden</strong> um zu merken.
+            Dann startet dein Timer: Klicke die Farben in <strong>derselben Reihenfolge</strong>an.
           </p>
 
           <ul class="mt-4 space-y-2 text-sm font-semibold opacity-90">
-            <li>• Niveau 1 = 5 couleurs (puis 6, 7, …)</li>
-            <li>• Une erreur = partie terminée</li>
-            <li>• Objectif final : réussir jusqu’à <strong>10 couleurs</strong></li>
-            <li>• Le meilleur niveau et le meilleur temps sont sauvegardés</li>
+            <li>• Stufe 1 = 5 Farben (dann 6, 7, …)</li>
+            <li>• Ein Fehler = Spiel beendet</li>
+            <li>• Endziel: bis zu <strong>10 Farben erreichen</strong></li>
+            <li>• Die beste Stufe und die beste Zeit werden gespeichert</li>
           </ul>
 
           <div class="mt-6 h-1 w-full rounded-full bg-gradient-to-r from-amber-300 to-orange-500 opacity-80"></div>
           <p class="mt-4 text-sm font-semibold opacity-80">
-            Conseil : regarde la zone puis répète mentalement la séquence.
+            Tipp: Schau dir den Bereich an und wiederhole die Sequenz dann im Kopf.
           </p>
         </div>
       </aside>

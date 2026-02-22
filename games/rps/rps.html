@@ -42,7 +42,7 @@
          class="inline-flex items-center gap-2 font-extrabold rounded-full px-4 py-2
                 bg-white/60 dark:bg-white/10 ring-1 ring-white/35 dark:ring-white/10
                 hover:-translate-y-[1px] transition">
-        ← Menu
+        ← Menü
       </a>
 
       <h1 class="inline-flex items-center gap-2 font-extrabold text-lg sm:text-xl rounded-full px-5 py-2
@@ -58,19 +58,19 @@
       <div class="flex flex-wrap justify-center gap-2.5 anim-up">
         <button class="app-tab-btn rounded-full px-4 py-2.5 font-extrabold bg-gradient-to-r from-amber-300 to-orange-500 text-white shadow
                        hover:-translate-y-[1px] transition"
-                data-tab="game" type="button">🕹️ Jeu</button>
+                data-tab="game" type="button">🕹️spiel</button>
 
         <button class="app-tab-btn rounded-full px-4 py-2.5 font-extrabold bg-white/60 dark:bg-white/10
                        ring-1 ring-white/35 dark:ring-white/10 hover:-translate-y-[1px] transition"
-                data-tab="rules" type="button">📜 Règles</button>
+                data-tab="rules" type="button">📜Regeln</button>
 
         <button class="app-tab-btn rounded-full px-4 py-2.5 font-extrabold bg-white/60 dark:bg-white/10
                        ring-1 ring-white/35 dark:ring-white/10 hover:-translate-y-[1px] transition"
-                data-tab="stats" type="button">📊 Stats</button>
+                data-tab="stats" type="button">📊Stats</button>
 
         <button class="app-tab-btn rounded-full px-4 py-2.5 font-extrabold bg-white/60 dark:bg-white/10
                        ring-1 ring-white/35 dark:ring-white/10 hover:-translate-y-[1px] transition"
-                data-tab="settings" type="button">⚙️ Paramètres</button>
+                data-tab="settings" type="button">⚙️Einstellung</button>
       </div>
     </div>
   </header>
@@ -88,7 +88,7 @@
                      shadow-soft dark:shadow-softDark hover:-translate-y-1 hover:brightness-105 transition">
               <img class="w-50 h-50 rounded-2xl" src="https://whatemoji.org/wp-content/uploads/2020/07/%E2%8A%9B-Rock-Emoji.png" alt="Pierre">
               
-              <div class="mt-3 inline-flex rounded-xl px-3 py-1 font-extrabold bg-amber-300/80 text-slate-900">Pierre</div>
+              <div class="mt-3 inline-flex rounded-xl px-3 py-1 font-extrabold bg-amber-300/80 text-slate-900">Stein</div>
             </button>
 
             <button type="button" onclick="play(1)"
@@ -104,7 +104,7 @@
                      ring-1 ring-white/35 dark:ring-white/10 shadow-soft dark:shadow-softDark
                      hover:-translate-y-1 hover:brightness-105 transition">
               <img class="w-50 h-50  rounded-2xl" src="https://hotemoji.com/images/dl/c/black-scissors-emoji-by-google.png" alt="Ciseau">
-              <div class="mt-3 inline-flex rounded-xl px-3 py-1 font-extrabold bg-amber-300/80 text-slate-900">Ciseau</div>
+              <div class="mt-3 inline-flex rounded-xl px-3 py-1 font-extrabold bg-amber-300/80 text-slate-900">Schere</div>
             </button>
           </div>
 
@@ -119,7 +119,7 @@
 
             <div class="w-full max-w-[220px] rounded-3xl p-4 bg-white/65 dark:bg-white/7
                         ring-2 ring-amber-300/70 dark:ring-amber-300/40 shadow-soft dark:shadow-softDark">
-              <img id="computer" class="w-full rounded-2xl" alt="Choix de l'IA apparait ici">
+              <img id="computer" class="w-full rounded-2xl" alt="IA Wahl">
             </div>
             <button id="startButton" onclick="start()"
               class="rounded-full px-7 py-3 text-lg font-extrabold text-white bg-gradient-to-r from-amber-300 to-orange-500
@@ -130,7 +130,7 @@
             <button id="newRoundButton" onclick="resetGame()"
               class="rounded-full px-7 py-3 text-lg font-extrabold text-white bg-gradient-to-r from-amber-300 to-orange-500
                      hover:-translate-y-[1px] hover:brightness-110 transition shadow">
-              New round
+              Neue Runde
             </button>
 
             <!-- Decision -->
@@ -147,11 +147,11 @@
         <aside class="lg:col-span-3">
           <div class="rounded-3xl p-5 bg-white/65 dark:bg-white/7 ring-1 ring-white/35 dark:ring-white/10
                       shadow-soft dark:shadow-softDark">
-            <h2 class="font-extrabold text-orange-600 dark:text-amber-300">Score</h2>
+            <h2 class="font-extrabold text-orange-600 dark:text-amber-300">Ergebnis</h2>
 
             <div class="mt-4 grid grid-cols-2 text-sm font-bold opacity-80">
-              <div>Player</div>
-              <div>Computer</div>
+              <div>Spieler</div>
+              <div>IA</div>
             </div>
 
             <div class="mt-4 grid grid-cols-2">
@@ -160,7 +160,7 @@
             </div>
 
             <div class="mt-5 h-1 w-full rounded-full bg-gradient-to-r from-amber-300 to-orange-500 opacity-80"></div>
-            <p class="mt-4 text-sm font-bold opacity-70">Joue et améliore tes stats 🔥</p>
+            <p class="mt-4 text-sm font-bold opacity-70">Spiele und verbessere deine Stats </p>
           </div>
         </aside>
 
@@ -175,19 +175,19 @@
                   bg-white/65 dark:bg-white/7
                   ring-1 ring-white/35 dark:ring-white/10
                   shadow-soft dark:shadow-softDark">
-        <h2 class="mb-4 text-center font-extrabold text-orange-600 dark:text-amber-300">Règles du jeu</h2>
+        <h2 class="mb-4 text-center font-extrabold text-orange-600 dark:text-amber-300">Spielregeln</h2>
 
         <p class="font-semibold opacity-90">
-          Le jeu oppose <strong>Player</strong> et <strong>Computer</strong>. Le joueur choisit une option, puis le PC choisit aléatoirement.
+          Das Spiel  <strong>den Spiler</strong> und <strong>KI</strong>. Der Spieler wählt eine Option, danach wählt die KI zufällig.
         </p>
 
         <ul class="mt-4 list-disc pl-5 space-y-2 font-semibold opacity-90">
-          <li><strong>Pierre</strong> bat <strong>Ciseaux</strong></li>
-          <li><strong>Ciseaux</strong> bat <strong>Papier</strong></li>
-          <li><strong>Papier</strong> bat <strong>Pierre</strong></li>
+          <li><strong>Stein</strong> schlägt <strong>schere</strong></li>
+          <li><strong>schere</strong> schlägt <strong>Papier</strong></li>
+          <li><strong>Papier</strong> schlägt <strong>Stein</strong></li>
         </ul>
 
-        <p class="mt-4 font-semibold opacity-90">Objectif : gagner un maximum de manches.</p>
+        <p class="mt-4 font-semibold opacity-90">Ziel : so viele Runden wie möglich gewinnen.</p>
       </div>
     </div>
   </section>
@@ -198,7 +198,7 @@
                   ring-1 ring-white/35 dark:ring-white/10 shadow-soft dark:shadow-softDark">
          
         <h2 class="font-extrabold text-orange-600 dark:text-amber-300">Statistiques</h2>
-        <p class="mt-2 font-semibold opacity-80">Chargement...</p>
+        <p class="mt-2 font-semibold opacity-80">laden...</p>
       </div>
     </div>
   </section>
@@ -208,7 +208,7 @@
     <div class="mx-auto max-w-3xl px-4 py-8 anim-up">
       <div class="rounded-3xl p-6 bg-white/65 dark:bg-white/7
                   ring-1 ring-white/35 dark:ring-white/10 shadow-soft dark:shadow-softDark">
-        <h2 class="font-extrabold text-orange-600 dark:text-amber-300">Paramètres</h2>
+        <h2 class="font-extrabold text-orange-600 dark:text-amber-300">Einstellungen</h2>
 
         <div class="mt-4 flex flex-wrap justify-center gap-2">
            
@@ -221,7 +221,7 @@
           <button id="resetStatsBtn" type="button"
                   class="rounded-full px-4 py-2.5 font-extrabold bg-white/60 dark:bg-white/10
                          ring-1 ring-white/35 dark:ring-white/10 hover:-translate-y-[1px] transition">
-            🧹 Reset stats
+            🧹 Stat zurücksetzen
           </button>
         </div>
       </div>

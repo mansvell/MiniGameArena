@@ -121,7 +121,7 @@ function applyTileColor(btn, colorClass) {
   function onMissedGreen() {
     if (!running) return;
     if (expectingGreen) {
-      gameOver("Tu as raté le vert😂😂😂");
+      gameOver("grünes Feld verpasst😂😂😂");
     }
   }
 
@@ -153,7 +153,7 @@ function applyTileColor(btn, colorClass) {
 
     // Si le joueur clique autre chose que le vert => perdu direct
     if (!t.isGreen) {
-      gameOver("Mauvaise couleur ❌");
+      gameOver("falsche Farbe");
       return;
     }
 
@@ -163,16 +163,14 @@ function applyTileColor(btn, colorClass) {
 
       score += 1;
 
-      
-      //intervalMs = Math.max(MIN_INTERVAL, Math.round(intervalMs * SPEEDUP)); // accélère progressivement
 
       // update best
       if (score > best) {
         best = score;
         saveBest(best);
-        setHint("🔥 Nouveau record !");
+        setHint(" Neues Record !");
       } else {
-        setHint("✅ Bien joué, continue !");
+        setHint(" gut , weiter so !");
       }
 
       updateHUD();
@@ -225,7 +223,6 @@ function applyTileColor(btn, colorClass) {
     startBtn.disabled = true;
 
     setStatus("En jeu");
-    setHint("Prépare-toi… tape le vert !");
     updateHUD();
 
     startCountdownThenPlay();
@@ -236,7 +233,7 @@ function applyTileColor(btn, colorClass) {
    */
   function startGameLoop() {
     if (!running) return;
-    setHint("🟩 Tape le vert !");
+  
     scheduleTick();
   }
 
@@ -345,7 +342,7 @@ function applyTileColor(btn, colorClass) {
     buildGrid();
 
     setStatus("Prêt");
-    setHint("Clique Start. Puis tape le vert.");
+    
     updateHUD();
 
     startBtn.addEventListener("click", startGame);
