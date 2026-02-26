@@ -19,8 +19,7 @@
       }
     }
   </script>
-
-  <!-- Animations only -->
+ 
   <style>
     @keyframes fadeUp { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
     @keyframes dropIn { from{opacity:0; transform:translateY(-10px)} to{opacity:1; transform:translateY(0)} }
@@ -32,14 +31,8 @@
     .anim-card { animation: fadeUp .6s ease-out both; }
     .anim-card:nth-child(1){ animation-delay:.10s }
     .anim-card:nth-child(2){ animation-delay:.18s }
-
-    .title-shine{ position:relative; overflow:hidden }
-    .title-shine::after{
-      content:""; position:absolute; inset:0;
-      background:linear-gradient(110deg, transparent 0%, rgba(255,255,255,.55) 45%, transparent 65%);
-      transform:translateX(-140%); animation: shine 2.8s ease-in-out infinite;
-      opacity:.55; pointer-events:none;
-    }
+ 
+    
     body.dark .title-shine::after{ opacity:.22; }
 
     .bg-glow::before{
@@ -98,10 +91,7 @@
   }
   body.dark .play-badge{ background:rgba(0,0,0,.35); border-color:rgba(255,255,255,.12); }
 
-  .card-glow{
-    box-shadow: 0 18px 55px rgba(0,0,0,.18);
-    transition: box-shadow .3s ease, transform .3s ease, filter .3s ease;
-  }
+  
   .game-card:hover{
     transform: translateY(-6px);
     box-shadow: 0 30px 90px rgba(0,0,0,.28);
@@ -113,13 +103,13 @@
 <body class="min-h-screen bg-gradient-to-br from-white to-amber-800 text-slate-900 dark:from-neutral-950 dark:to-neutral-900 dark:text-white bg-glow">
  
   <div class="fixed inset-0 -z-10">
-      <img class="h-full w-full object-cover opacity-90" src="bg.png" alt="bg" />
+      <img class="h-full w-full object-cover opacity-90" src="orangebg.webp" alt="bg" />
       <div class="absolute inset-0 bg-black/50"></div>
   </div>
 
   <header class="sticky top-0 z-10 backdrop-blur-md bg-white/35 dark:bg-black/45 border-b border-white/35 dark:border-white/10">
     <div class="mx-auto max-w-8xl px-4 py-4 flex items-center justify-between gap-4 anim-drop">
-      <h1 class="title-shine inline-flex items-center gap-3 font-extrabold text-xl sm:text-2xl
+      <h1 class="  inline-flex items-center gap-3 font-extrabold text-xl sm:text-2xl
                  rounded-full px-5 py-2 ring-2 ring-white/35 dark:ring-white/10 bg-white/55 dark:bg-white/5 shadow-soft dark:shadow-softDark">
         Mini Game Arena
       </h1>
@@ -142,7 +132,7 @@
 
     <div class="mt-40  grid grid-cols-2 md:grid-cols-4 gap-5">
       
-          <a href="games/rps/rps.html" class="anim-card game-card card-glow group rounded-3xl p-6
+          <a href="games/rps/rps.html" class="anim-card game-card group rounded-3xl p-6
                       ring-1 ring-white/35 dark:ring-white/10 bg-white/55 dark:bg-white/7">
 
           
@@ -155,7 +145,7 @@
              </div>
           </a>
 
-      <a href="games/jagd/jagd.html" class="anim-card game-card card-glow group rounded-3xl p-6
+      <a href="games/jagd/jagd.html" class="anim-card game-card group rounded-3xl p-6
           ring-1 ring-white/35 dark:ring-white/10 bg-white/55 dark:bg-white/7">
 
           
@@ -166,7 +156,7 @@
           </div>
       </a>
 
-      <a href="games/memorycolor/memorycolor.html" class="anim-card game-card card-glow group rounded-3xl p-6
+      <a href="games/memorycolor/memorycolor.html" class="anim-card game-card  group rounded-3xl p-6
           ring-1 ring-white/35 dark:ring-white/10 bg-white/55 dark:bg-white/7">
         
          <div class="game-overlay"></div>
@@ -176,7 +166,7 @@
           </div>
       </a>
 
-    <a href="games/memory/memory.html" class="anim-card game-card card-glow group rounded-3xl p-6
+    <a href="games/memory/memory.html" class="anim-card game-card group rounded-3xl p-6
           ring-1 ring-white/35 dark:ring-white/10 bg-white/55 dark:bg-white/7">
 
            
@@ -187,7 +177,7 @@
           </div>
     </a>
 
-    <a href="games/reaction/reaction.html" class="anim-card game-card card-glow group rounded-3xl p-6
+    <a href="games/reaction/reaction.html" class="anim-card game-card  group rounded-3xl p-6
           ring-1 ring-white/35 dark:ring-white/10 bg-white/55 dark:bg-white/7">
        
          <div class="game-overlay"></div>
