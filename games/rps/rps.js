@@ -141,12 +141,12 @@ function start() {
   const result = getResult(select, i);
 
   if (result === "DRAW") {
-    if (dec) dec.innerText = `ÉGALITÉ ! `;
+    if (dec) dec.innerText = `GLEICH ! `;
   } else if (result === "WIN") {
-    if (dec) dec.innerText = `GAGNÉ ! `;
+    if (dec) dec.innerText = `GEWINNEN ! `;
     scorePl++;
   } else {
-    if (dec) dec.innerText = `PERDU ! `;
+    if (dec) dec.innerText = `VERLOREN ! `;
     scoreC++;
   }
 
@@ -169,7 +169,7 @@ function play(choice) {
   }
 
   const dec = document.getElementById("decision");
-  if (dec) dec.innerText = `Choisi: ${names[choice]}`;
+  if (dec) dec.innerText = `deine Wahl: ${names[choice]}`;
 }
 
 function resetGame() {
@@ -188,7 +188,7 @@ function resetGame() {
   if (resetNew) resetNew.disabled = true;
 
   const schrift = document.getElementById("decision");
-  if (schrift) schrift.textContent = "Nouvelle manche prête.";
+  if (schrift) schrift.textContent = "Bereit?";
 }
 
 //Settings
