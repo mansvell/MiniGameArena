@@ -383,7 +383,7 @@
     pairsEl.textContent = "0";
     timeEl.textContent = "0.0";
 
-    setStatus("Prêt");
+    setStatus("Bereit?");
     setHint("Clique Start. (Compte à rebours 3s)");
   }
 
@@ -412,7 +412,7 @@
     cards = buildDeck();
     renderBoard();
 
-    setStatus("Prêt");
+    setStatus("Bereit?");
     
 
     startBtn.addEventListener("click", () => {

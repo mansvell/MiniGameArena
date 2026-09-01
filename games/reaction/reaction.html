@@ -24,7 +24,7 @@
   <script src="reaction.js" defer></script>
 </head>
 
-<body class="min-h-screen bg-gradient-to-br from-white to-amber-800 text-slate-900 dark:from-neutral-950 dark:to-neutral-900 dark:text-white">
+<body class="min-h-screen flex flex-col bg-gradient-to-br from-white to-gray-800 text-slate-900 dark:from-neutral-950 dark:to-neutral-900 dark:text-white">
 
   <!-- Header -->
   <header class="sticky top-0 z-10 backdrop-blur-md bg-white/35 dark:bg-black/45 border-b border-white/35 dark:border-white/10">
@@ -50,15 +50,53 @@
     </div>
   </header>
 
-  <main class="mx-auto max-w-7xl px-4 py-8">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+  <main class="mx-auto flex-1 max-w-7xl px-4 py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-8 xl:grid-cols-12 gap-6 items-start">
+
+      <!-- Right: game -->
+      <section class="lg:col-span-8">
+        <div class="rounded-3xl p-6 bg-white/65 dark:bg-white/7 ring-1 ring-white/35 dark:ring-white/10 shadow relative overflow-hidden">
+
+          <!-- Grid: 6 tiles -->
+          <div id="gtGrid" class="mt-5 grid grid-cols-3 gap-3 sm:gap-4">
+            <!-- buttons injected by JS -->
+          </div>
+
+          <!-- Countdown overlay -->
+          <div id="gtCountdown"
+               class="absolute inset-0 hidden items-center justify-center bg-black/55 backdrop-blur-sm">
+            <div class="rounded-3xl px-10 py-8 text-center bg-white/85 dark:bg-neutral-950/70 ring-2 ring-amber-300/60 dark:ring-white/10">
+              <div class="text-sm font-extrabold opacity-80">Anfang in...</div>
+              <div id="gtCountNum" class="mt-2 text-6xl sm:text-7xl font-extrabold text-orange-600 dark:text-amber-300">3</div>
+              <div class="mt-3 text-sm font-semibold opacity-80">sei bereit…</div>
+            </div>
+          </div>
+
+          <!-- Game over overlay -->
+          <div id="gtGameOver"
+               class="absolute inset-0 hidden items-center justify-center bg-black/60 backdrop-blur-sm">
+            <div id="gtGameOverBox"
+                 class="mx-4 w-full max-w-xl rounded-3xl p-8 text-center
+                        bg-white/85 dark:bg-neutral-950/70 ring-2 ring-red-400/60 dark:ring-white/10">
+              <div class="text-5xl sm:text-6xl font-extrabold text-red-600 dark:text-red-400">
+                GAME OVER
+              </div>
+              <div id="gtGameOverText" class="mt-3 text-xl text-white/75 font-extrabold">
+                —
+              </div>
+              
+            </div>
+          </div>
+
+        </div>
+      </section>
 
       <!-- Left: info / stats -->
       <aside class="lg:col-span-4">
         <div class="rounded-3xl p-6 bg-white/65 dark:bg-white/7 ring-1 ring-white/35 dark:ring-white/10 shadow">
           <h2 class="text-xl font-extrabold text-orange-600 dark:text-amber-300">Regeln</h2>
           <p class="mt-2 font-semibold opacity-85">
-            Klicken Sie <span class="font-extrabold">NUR</span> aud das grüne Feld 
+            Klicken Sie <span class="font-extrabold">NUR</span> auf das grüne Feld. 
             Die Geschwindigkeit des Auftretens wird  mit der Zeit zunehmen.
           </p>
 
@@ -112,51 +150,12 @@
           </div>
         </div>
       </aside>
-
-      <!-- Right: game -->
-      <section class="lg:col-span-8">
-        <div class="rounded-3xl p-6 bg-white/65 dark:bg-white/7 ring-1 ring-white/35 dark:ring-white/10 shadow relative overflow-hidden">
-
-          <!-- Grid: 6 tiles -->
-          <div id="gtGrid" class="mt-5 grid grid-cols-3 gap-3 sm:gap-4">
-            <!-- buttons injected by JS -->
-          </div>
-
-          <!-- Countdown overlay -->
-          <div id="gtCountdown"
-               class="absolute inset-0 hidden items-center justify-center bg-black/55 backdrop-blur-sm">
-            <div class="rounded-3xl px-10 py-8 text-center bg-white/85 dark:bg-neutral-950/70 ring-2 ring-amber-300/60 dark:ring-white/10">
-              <div class="text-sm font-extrabold opacity-80">Anfang in...</div>
-              <div id="gtCountNum" class="mt-2 text-6xl sm:text-7xl font-extrabold text-orange-600 dark:text-amber-300">3</div>
-              <div class="mt-3 text-sm font-semibold opacity-80">sei bereit…</div>
-            </div>
-          </div>
-
-          <!-- Game over overlay -->
-          <div id="gtGameOver"
-               class="absolute inset-0 hidden items-center justify-center bg-black/60 backdrop-blur-sm">
-            <div id="gtGameOverBox"
-                 class="mx-4 w-full max-w-xl rounded-3xl p-8 text-center
-                        bg-white/85 dark:bg-neutral-950/70 ring-2 ring-red-400/60 dark:ring-white/10">
-              <div class="text-5xl sm:text-6xl font-extrabold text-red-600 dark:text-red-400">
-                GAME OVER
-              </div>
-              <div id="gtGameOverText" class="mt-3 text-xl text-white/75 font-extrabold">
-                —
-              </div>
-              
-            </div>
-          </div>
-
-        </div>
-      </section>
+      
     </div>
-
-    <footer class="mt-8 text-center text-sm font-bold opacity-75">
-      © 2026 Mansvell Nkwanga • Mini Game Arena
-    </footer>
+    
   </main>
 
+<footer class="mb-0 text-center text-sm bg-gradient-to-br from-white to-gray-800 font-bold opacity-50 p-4"> © 2026 Mansvell Nkwanga • Mini Game Arena </footer>
   <script src="../../js/app.js"></script>
 </body>
 </html>

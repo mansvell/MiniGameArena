@@ -25,7 +25,7 @@
   <script src="memory.js" defer></script>
 </head>
 
-<body class="min-h-screen bg-gradient-to-br from-white to-amber-800 text-slate-900 dark:from-neutral-950 dark:to-neutral-900 dark:text-white">
+<body class="min-h-screen flex flex-col bg-gradient-to-br from-white to-gray-800 text-slate-900 dark:from-neutral-950 dark:to-neutral-900 dark:text-white">
 
   <!-- Header -->
   <header class="sticky top-0 z-10 backdrop-blur-md bg-white/35 dark:bg-black/45 border-b border-white/35 dark:border-white/10">
@@ -51,13 +51,13 @@
     </div>
   </header>
 
-  <main class="mx-auto max-w-7xl px-4 py-8">
+  <main class="mx-auto flex-1 max-w-7xl px-4 py-8">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
 
       <!-- Left: Controls / stats -->
       <aside class="lg:col-span-4">
         <div class="rounded-3xl p-6 bg-white/65 dark:bg-white/7 ring-1 ring-white/35 dark:ring-white/10 shadow">
-          <h2 class="text-xl font-extrabold text-orange-600 dark:text-amber-300">Objectif</h2>
+          <h2 class="text-xl font-extrabold text-orange-600 dark:text-amber-300">Ziele</h2>
           <p class="mt-2 font-semibold opacity-85">
             Finden Sie alle <span class="font-extrabold">Paare</span>.
           </p>
@@ -152,11 +152,9 @@
 
     </div>
 
-    <footer class="mt-8 text-center text-sm font-bold opacity-75">
-      © 2026 Mansvell NKWANGA • Mini Game Arena
-    </footer>
-  </main>
-
+    </main>
+<footer class="mb-0 text-center text-sm bg-gradient-to-br from-white to-gray-800 font-bold opacity-50 p-4"> © 2026 Mansvell Nkwanga • Mini Game Arena </footer>
+  
   <script src="../../js/app.js"></script>
 </body>
 </html>

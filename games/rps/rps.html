@@ -33,7 +33,7 @@
   <script src="rps.js" defer></script>
 </head>
 
-<body class="min-h-screen bg-gradient-to-br from-white to-amber-800 text-slate-900 dark:from-neutral-950 dark:to-neutral-900 dark:text-white">
+<body class="min-h-screen flex flex-col bg-gradient-to-br from-white to-gray-800 text-slate-900 dark:from-neutral-950 dark:to-neutral-900 dark:text-white">
 
   <!-- Header -->
   <header class="sticky top-0 z-10 backdrop-blur-md bg-white/35 dark:bg-black/45 border-b border-white/35 dark:border-white/10">
@@ -58,26 +58,27 @@
       <div class="flex flex-wrap justify-center gap-2.5 anim-up">
         <button class="app-tab-btn rounded-full px-4 py-2.5 font-extrabold bg-gradient-to-r from-amber-300 to-orange-500 text-white shadow
                        hover:-translate-y-[1px] transition"
-                data-tab="game" type="button">🕹️spiel</button>
+                data-tab="game" type="button">Spiel</button>
 
         <button class="app-tab-btn rounded-full px-4 py-2.5 font-extrabold bg-white/60 dark:bg-white/10
                        ring-1 ring-white/35 dark:ring-white/10 hover:-translate-y-[1px] transition"
-                data-tab="rules" type="button">📜Regeln</button>
+                data-tab="rules" type="button">Regeln</button>
 
         <button class="app-tab-btn rounded-full px-4 py-2.5 font-extrabold bg-white/60 dark:bg-white/10
                        ring-1 ring-white/35 dark:ring-white/10 hover:-translate-y-[1px] transition"
-                data-tab="stats" type="button">📊Stats</button>
+                data-tab="stats" type="button">Stats</button>
 
         <button class="app-tab-btn rounded-full px-4 py-2.5 font-extrabold bg-white/60 dark:bg-white/10
                        ring-1 ring-white/35 dark:ring-white/10 hover:-translate-y-[1px] transition"
-                data-tab="settings" type="button">⚙️Einstellung</button>
+                data-tab="settings" type="button">Einstellung</button>
       </div>
     </div>
   </header>
 
   <!-- TAB: GAME -->
+   <main class="flex-1">
   <section id="tab-game" class="tab-view block active">
-    <main class="mx-auto max-w-7xl px-4 py-8 anim-up">
+    <main class="mx-auto max-w-7xl px-4 py-8 lg:items-center lg:py-20 center anim-up">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
 
         <div class="lg:col-span-9">
@@ -221,12 +222,13 @@
           <button id="resetStatsBtn" type="button"
                   class="rounded-full px-4 py-2.5 font-extrabold bg-white/60 dark:bg-white/10
                          ring-1 ring-white/35 dark:ring-white/10 hover:-translate-y-[1px] transition">
-            🧹 Stat zurücksetzen
+            Stat zurücksetzen
           </button>
         </div>
       </div>
     </div>
   </section>
+  </main>
 
   <script>
     (function () {
@@ -273,9 +275,7 @@
     })();
   </script>
 
-  <footer class="py-8 text-center text-sm font-bold opacity-75">
-    © 2026: Mansvell Nkwanga
-  </footer>
+  <footer class="mb-0 text-center text-sm bg-gradient-to-br from-white to-gray-800 font-bold opacity-50 p-4"> © 2026 Mansvell Nkwanga • Mini Game Arena </footer>
 
 </body>
 </html>

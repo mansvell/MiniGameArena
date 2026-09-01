@@ -87,7 +87,7 @@
     running = true;
     startBtn.disabled = true;
     restartBtn.disabled = true;
-    if (msgEl) msgEl.textContent = "Survis !";
+    if (msgEl) msgEl.textContent = "Ueberleben !";
 
     startTime = performance.now();
     lastT = startTime;
@@ -106,9 +106,9 @@
     if (survivedSeconds > best) {
       saveBest(survivedSeconds);
       setBestUI();
-      if (msgEl) msgEl.textContent = `💥 Touché ! Nouveau record: ${survivedSeconds.toFixed(2)}s`;
+      if (msgEl) msgEl.textContent = `💥 Angefasst ! New record: ${survivedSeconds.toFixed(2)}s`;
     } else {
-      if (msgEl) msgEl.textContent = `💥 Touché ! Temps: ${survivedSeconds.toFixed(2)}s`;
+      if (msgEl) msgEl.textContent = `💥 Angefasst ! Zeit: ${survivedSeconds.toFixed(2)}s`;
     }
 
     if (rafId) cancelAnimationFrame(rafId);
@@ -151,7 +151,7 @@
 
       // petite “animation” via msg + halo
       if (msgEl) msgEl.textContent = " 2e ennemi apparu !";
-      setTimeout(() => { if (running && msgEl) msgEl.textContent = "Survis !"; }, 900);
+      setTimeout(() => { if (running && msgEl) msgEl.textContent = "Ueberleben !"; }, 900);
     }
 
     if (spawnAnim > 0) {
@@ -201,7 +201,7 @@
     // petit texte discret
     ctx.font = "14px Trebuchet MS, Arial";
     ctx.fillStyle = "rgba(0,0,0,0.55)";
-    ctx.fillText(`Survie: ${elapsed.toFixed(2)}s`, 16, 24);
+    ctx.fillText(`Überlebenszeit: ${elapsed.toFixed(2)}s`, 16, 24);
 
     // player
     ctx.beginPath();

@@ -187,7 +187,7 @@
     stopTimer();
     enableColorButtons(false);
     setPhase("LOSE");
-    setMsg("❌ Faux ! Clique Rejouer.");
+    setMsg("❌ Verloren !");
     restartBtn.disabled = false;
     startBtn.disabled = false;
 
